@@ -5,7 +5,7 @@ export default function Home() {
   return (
     <div>
       <div className="flex flex-col bg-[#061420] w-full h-screen">
-        <menu className="flex flex-row text-[#A6DAFF] border border-red">
+        <header className="flex flex-row text-[#A6DAFF] border border-red">
           <div>
             <Link href="/">
             <Image
@@ -17,17 +17,19 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="flex">
+          <nav className="flex">
             <ul className="flex flex-row">
               <li>Підписки</li>
               <li>Підтримка</li>
               <li>Завантажити додаток</li>
             </ul>
             <button>Реєстрація</button>
-          </div>
-        </menu>
+          </nav>
+        </header>
 
         <div className="border border-pink-400">
+          <img src="/loader/background_gradient.svg"
+          className="absolute inset-0 w-full h-full object-cover"/>
           <div>
             <img></img>
             <h1 className="text-[#AFF0F2]">Закортилося чогось новенького у рутині?</h1>
