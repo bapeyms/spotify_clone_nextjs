@@ -30,6 +30,8 @@ export default function Home() {
         <div className="border border-pink-400">
           <img src="/loader/background_gradient.svg"
           className="absolute inset-0 w-full h-full object-cover"/>
+          <img src="/loader/background_figures.svg"
+          className="absolute inset-0 w-full h-full object-cover"/>
           <div>
             <img></img>
             <h1 className="text-[#AFF0F2]">Закортилося чогось новенького у рутині?</h1>
