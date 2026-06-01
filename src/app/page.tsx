@@ -95,24 +95,26 @@ export default function Home() {
       <div className="flex flex-col items-center justify-center relative w-full h-screen bg-[#061420] z-0 px-12 lg:px-24 overflow-hidden">
         <img src="/loader/bg2.png"
         className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
+        <img src="/loader/character2.png"
+        className="hidden lg:flex absolute -z-10 inset-0 lg:w-7/10 h-full object-cover pointer-events-none"></img>
         
-        <div className="flex flex-col w-full max-w-5xl gap-6 lg:gap-10 relative z-10">
+        <div className="flex flex-col w-full max-w-5xl gap-20 lg:gap-10 relative z-10">
           
-          <div className="flex flex-col items-center lg:items-stretch text-center w-48 py-5 px-8 
+          <div className="flex flex-col items-center lg:items-stretch text-center w-58 py-5 px-8 
           text-[#B0FFFF] border border-[#B0FFFF]/30 bg-white/5 backdrop-blur-sm rounded-xl self-start shadow-lg shadow-[#B0FFFF]/5">
-            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-1">100m+</h1>
+            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-1">100m+</h1>
             <h3 className="text-base lg:text-lg text-[#B0FFFF]/80 font-medium">Пісень</h3>
           </div>
 
-          <div className="flex flex-col items-center text-center w-48 py-5 px-8 
+          <div className="flex flex-col items-center text-center w-58 py-5 px-8 
           text-[#B4ADFF] border border-[#B4ADFF]/30 bg-white/5 backdrop-blur-sm rounded-xl self-center shadow-lg shadow-[#B4ADFF]/5">
-            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-1">40k+</h1>
+            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-1">40k+</h1>
             <h3 className="text-base lg:text-lg text-[#B4ADFF]/80 font-medium">Підкастів</h3>
           </div>
 
-          <div className="flex flex-col items-center text-center w-48 py-5 px-8 
+          <div className="flex flex-col items-center text-center w-58 py-5 px-8 
           text-[#BAFFDF] border border-[#BAFFDF]/30 bg-white/5 backdrop-blur-sm rounded-xl self-end shadow-lg shadow-[#BAFFDF]/5">
-            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-1">20k+</h1>
+            <h1 className="text-4xl lg:text-6xl font-bold tracking-tight mb-1">20k+</h1>
             <h3 className="text-base lg:text-lg text-[#BAFFDF]/80 font-medium">Виконавців</h3>
           </div>
 
