@@ -10,6 +10,7 @@ export default function Home() {
 
   return (
     <div className="bg-[#061420] flex flex-col overflow-x-hidden">
+      {/* first page */}
       <div className="flex flex-col w-full h-screen font-sans">
         <header className="flex flex-row justify-between items-center text-[#A6DAFF] px-3 border-b border-[#93E8FF]/30">
           <div>
@@ -24,6 +25,7 @@ export default function Home() {
             </Link>
           </div>
 
+          {/* menu + burger menu */}
           <nav className="flex gap-7 font-semibold">
             <div className="hidden md:flex items-center gap-9">
               <ul className="flex flex-row gap-6 text-[#88BCD6]">
@@ -61,6 +63,7 @@ export default function Home() {
             </nav>
         </header>
 
+        {/* first page main content */}
         <div className="flex flex-col md:flex-row lg:flex-row items-center relative w-full h-screen bg-[#061420] z-0">
           <img src="/loader/bg1.png"
           className="absolute -z-10 inset-0 w-full h-full object-cover"/>
@@ -92,6 +95,7 @@ export default function Home() {
         </div>
       </div>
 
+      {/* second page */}
       <div className="flex flex-col items-center justify-center relative w-full h-screen bg-[#061420] z-0 px-12 lg:px-24 overflow-hidden">
         <img src="/loader/bg2.png"
         className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
@@ -120,6 +124,32 @@ export default function Home() {
 
         </div>
       </div>
+
+      {/* third page */}
+      <div className="flex flex-col relative w-full h-screen bg-[#061420] z-0 overflow-hidden">
+        <img src="/loader/bg3.png"
+        className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
+        
+        <div className="flex flex-col">
+          <h1 className="text-[#BCE3FF]">Додавай свої треки до медіатеки!</h1>
+          
+          <div className="flex flex-row">
+            <h2 className="text-[#94AAFF]">Прямо з комп'ютера завантажуй музику!</h2>
+            <img src="/loader/download3.png"></img>
+          </div>
+          
+          <div className="flex flex-row">
+            <h2 className="text-[#94FFFF]">Створюй плейлисти та слухай, коли хочеш!</h2>
+            <img src="/loader/pencil3.png"></img>
+          </div>
+
+        </div>
+        
+        <div>
+          <img src="/loader/bg3_homescreen.png"></img>
+        </div>
+      </div>
+      
     </div>
   );
 }
