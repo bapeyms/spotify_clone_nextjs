@@ -1,6 +1,36 @@
+"use client";
+
+import { useState } from "react";
+import { validateEmail, validatePassword } from "./validation";
+
 export default function SingUP() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
+    const emailMessage = validateEmail(email);
+    const passwordMessage = validatePassword(password);
+
+    setEmailError(emailMessage);
+    setPasswordError(passwordMessage);
+
+    if (emailMessage || passwordMessage) {
+      return;
+    }
+
+    console.log("Все правильно");
+  }
+
   return (
-    <div className="h-sreen flex items-start justify-center bg-[#070D1A] m-3">
+    <form
+      onSubmit={handleSubmit}
+      className="h-screen flex items-start justify-center bg-[#070D1A] m-3"
+    >
       <div className="flex items-center justify-center flex-col border border-[#496999] rounded-xl px-16 py-6 bg-[#070D1A] w-full max-w-[550px]">
         <img className="w-30 h-30" src="/general/logo.png" alt="logo" />
 
@@ -20,7 +50,7 @@ export default function SingUP() {
           </div>
 
           <div className="w-full flex items-center justify-center gap-4 py-2.5 border border-[#496999] rounded-xl cursor-pointer transition hover:bg-[#496999]/20">
-            <img className="w-5 h-5" src="/singup/apple.png" alt="apple" />
+            <img className="w-5 h-5" src="/singup/apple.png" alt="Apple" />
             <p className="text-xl text-[#496999]">Увійти з Apple</p>
           </div>
         </div>
@@ -36,7 +66,13 @@ export default function SingUP() {
             className="w-full px-4 py-2.5 border border-[#496999] rounded-xl bg-[#001B2E] text-white placeholder:text-[#6B7FA8] outline-none text-xl"
             type="text"
             placeholder="@gmail.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
+
+          {emailError && (
+            <p className="text-red-500 text-sm mt-2">{emailError}</p>
+          )}
 
           <div className="flex justify-between items-center mt-4 mb-2">
             <p className="text-xl text-white">Пароль</p>
@@ -51,6 +87,8 @@ export default function SingUP() {
               className="w-full px-4 py-2.5 pr-12 border border-[#496999] rounded-xl bg-[#001B2E] text-white placeholder:text-[#6B7FA8] outline-none text-xl"
               type="password"
               placeholder="************"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
             />
 
             <img
@@ -60,7 +98,14 @@ export default function SingUP() {
             />
           </div>
 
-          <button className="w-full mt-5 px-4 py-2.5 rounded-xl bg-[#1DA1F2] text-black font-bold text-xl hover:bg-[#39b8ff] transition">
+          {passwordError && (
+            <p className="text-red-500 text-sm mt-2">{passwordError}</p>
+          )}
+
+          <button
+            className="w-full mt-5 px-4 py-2.5 rounded-xl bg-[#1DA1F2] text-black font-bold text-xl hover:bg-[#39b8ff] transition"
+            type="submit"
+          >
             Увійти
           </button>
         </div>
@@ -75,6 +120,6 @@ export default function SingUP() {
           </a>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
