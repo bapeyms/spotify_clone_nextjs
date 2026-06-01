@@ -3,8 +3,8 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <div>
-      <div className="flex flex-col bg-[#061420] w-full h-screen font-sans">
+    <div className="bg-[#061420] flex flex-col overflow-x-hidden">
+      <div className="flex flex-col w-full h-screen font-sans">
         <header className="flex flex-row justify-between items-center text-[#A6DAFF] px-3 border-b border-[#93E8FF]/30">
           <div className=" text-center">
             <Link href="/">
@@ -28,11 +28,9 @@ export default function Home() {
           </nav>
         </header>
 
-        <div className="flex flex-col relative w-full h-screen bg-[#061420] z-0">
-          <img src="/loader/background_gradient.svg"
-          className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"/>
-          <img src="/loader/background_figures.svg"
-          className="absolute inset-0 w-full h-full object-cover -z-10"/>
+        <div className="flex flex-row relative w-full h-screen bg-[#061420] z-0">
+          <img src="/loader/bg1.png"
+          className="absolute -z-10 inset-0 w-full h-full object-cover"/>
           
           <div className="relative z-10 flex flex-col w-95 h-auto gap-1 mt-15 lg:ml-35">
             <img src="/loader/lumitune.png"
@@ -44,9 +42,17 @@ export default function Home() {
               <button className="bg-[#02192E] text-[#2BD9F2] px-3 py-2 rounded-lg font-semibold">Перейти на сайт</button>
               <button className="bg-[#2BD9F2] text-[#02192E] px-3 py-2 rounded-lg font-semibold">Зареєструватися</button>
             </div>
-          
+          </div>
+
+          <div>
+            <img src="/loader/character1.png"></img>
           </div>
         </div>
+      </div>
+
+      <div className="relative w-screen h-screen">
+        <img src="/loader/background2.png"
+        className="w-full h-full object-cover"></img>
       </div>
     </div>
   );
