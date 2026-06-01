@@ -12,7 +12,7 @@ export default function Home() {
     <div className="bg-[#061420] flex flex-col overflow-x-hidden">
       <div className="flex flex-col w-full h-screen font-sans">
         <header className="flex flex-row justify-between items-center text-[#A6DAFF] px-3 border-b border-[#93E8FF]/30">
-          <div className=" text-center">
+          <div>
             <Link href="/">
             <Image
             src="/loader/loader_logo.png"
@@ -25,8 +25,8 @@ export default function Home() {
           </div>
 
           <nav className="flex gap-7 font-semibold">
-            <div className="hidden md:flex items-center gap-7">
-              <ul className="flex flex-row gap-4 text-[#88BCD6]">
+            <div className="hidden md:flex items-center gap-9">
+              <ul className="flex flex-row gap-6 text-[#88BCD6]">
                 <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підписки</li>
                 <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підтримка</li>
                 <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Завантажити додаток</li>
@@ -65,10 +65,10 @@ export default function Home() {
           <img src="/loader/bg1.png"
           className="absolute -z-10 inset-0 w-full h-full object-cover"/>
           
-          <div className="flex flex-col flex-1 w-full h-full">
+          <div className="flex flex-col justify-center lg:justify-start flex-1 w-full h-full">
             
             <div className="flex flex-col items-center">
-              <div className="flex flex-col w-3/5 lg:w-3/4 items-center mt-22 lg:mt-8 mb-2">
+              <div className="flex flex-col w-3/5 lg:w-3/4 items-center lg:mt-8 mb-2">
                 <img src="/loader/lumitune.png"
                 className="w-full h-auto"></img>
                 <h1 className="text-[#AFF0F2] w-full h-auto text-2xl lg:text-3xl font-semibold lg:pl-4 mb-2 -mt-10 lg:-mt-12 text-center lg:text-left">Закортілося чогось новенького у рутині?</h1>
@@ -92,9 +92,31 @@ export default function Home() {
         </div>
       </div>
 
-      <div className="relative w-screen h-screen">
-        <img src="/loader/background2.png"
-        className="w-full h-full object-cover"></img>
+      <div className="flex flex-col items-center justify-center relative w-full h-screen bg-[#061420] z-0 px-12 lg:px-24 overflow-hidden">
+        <img src="/loader/bg2.png"
+        className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
+        
+        <div className="flex flex-col w-full max-w-5xl gap-6 lg:gap-10 relative z-10">
+          
+          <div className="flex flex-col items-center lg:items-stretch text-center w-48 py-5 px-8 
+          text-[#B0FFFF] border border-[#B0FFFF]/30 bg-white/5 backdrop-blur-sm rounded-xl self-start shadow-lg shadow-[#B0FFFF]/5">
+            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-1">100m+</h1>
+            <h3 className="text-base lg:text-lg text-[#B0FFFF]/80 font-medium">Пісень</h3>
+          </div>
+
+          <div className="flex flex-col items-center text-center w-48 py-5 px-8 
+          text-[#B4ADFF] border border-[#B4ADFF]/30 bg-white/5 backdrop-blur-sm rounded-xl self-center shadow-lg shadow-[#B4ADFF]/5">
+            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-1">40k+</h1>
+            <h3 className="text-base lg:text-lg text-[#B4ADFF]/80 font-medium">Підкастів</h3>
+          </div>
+
+          <div className="flex flex-col items-center text-center w-48 py-5 px-8 
+          text-[#BAFFDF] border border-[#BAFFDF]/30 bg-white/5 backdrop-blur-sm rounded-xl self-end shadow-lg shadow-[#BAFFDF]/5">
+            <h1 className="text-4xl lg:text-5xl font-bold tracking-tight mb-1">20k+</h1>
+            <h3 className="text-base lg:text-lg text-[#BAFFDF]/80 font-medium">Виконавців</h3>
+          </div>
+
+        </div>
       </div>
     </div>
   );
