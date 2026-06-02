@@ -126,28 +126,32 @@ export default function Home() {
       </div>
 
       {/* third page */}
-      <div className="flex flex-col relative w-full h-screen bg-[#061420] z-0 overflow-hidden">
+      <div className="flex flex-row relative w-full h-screen bg-[#061420] z-0 overflow-hidden">
         <img src="/loader/bg3.png"
         className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
         
-        <div className="flex flex-col">
-          <h1 className="text-[#BCE3FF]">Додавай свої треки до медіатеки!</h1>
+        <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center px-6 gap-12 z-10">
+          <h1 className="w-3/4 h-auto text-[#BCE3FF] text-4xl">Додавай свої треки до медіатеки!</h1>
           
-          <div className="flex flex-row">
-            <h2 className="text-[#94AAFF]">Прямо з комп'ютера завантажуй музику!</h2>
-            <img src="/loader/download3.png"></img>
+          <div className="flex flex-row justify-center items-center gap-4 w-3/4 h-auto">
+            <img src="/loader/download3.png"
+            className="w-1/5"></img>
+            <h2 className="text-[#94AAFF]/80 text-2xl leading-tight">Прямо з комп'ютера завантажуй музику!</h2>
           </div>
           
-          <div className="flex flex-row">
-            <h2 className="text-[#94FFFF]">Створюй плейлисти та слухай, коли хочеш!</h2>
-            <img src="/loader/pencil3.png"></img>
+          <div className="flex flex-row justify-center items-center gap-4 w-3/4 h-auto">
+            <h2 className="text-[#94FFFF]/80 text-2xl leading-tight">Створюй плейлисти та слухай, коли хочеш!</h2>
+            <img src="/loader/pencil3.png"
+            className="w-1/5"></img>
           </div>
 
         </div>
         
-        <div>
-          <img src="/loader/bg3_homescreen.png"></img>
+        <div className="absolute bottom-0 right-0 w-[70vw] lg:w-[38vw] h-auto z-0 pointer-events-none select-none">
+          <img src="/loader/bg3_homescreen.png"
+          className="w-full h-auto object-contain block"></img>
         </div>
+
       </div>
       
     </div>
