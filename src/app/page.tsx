@@ -1,8 +1,10 @@
-import SingUP from "./signup/page";
+import SingUP from "./singup/page";
+import SingIN from "./signin/page";
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
+    <div className="flex min-h-screen items-center justify-center bg-black">
       <SingUP />
+      <SingIN />
     </div>
   );
 }
