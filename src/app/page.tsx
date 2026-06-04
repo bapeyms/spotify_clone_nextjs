@@ -71,10 +71,10 @@ export default function Home() {
           <div className="flex flex-col justify-center lg:justify-start flex-1 w-full h-full">
             
             <div className="flex flex-col items-center">
-              <div className="flex flex-col w-3/5 lg:w-3/4 items-center lg:mt-8 mb-2">
+              <div className="flex flex-col w-3/5 lg:w-3/4 items-center lg:mt-6 mb-2">
                 <img src="/loader/lumitune.png"
                 className="w-full h-auto"></img>
-                <h1 className="text-[#AFF0F2] w-full h-auto text-2xl lg:text-3xl font-semibold lg:pl-4 mb-2 -mt-10 lg:-mt-12 text-center lg:text-left">Закортілося чогось новенького у рутині?</h1>
+                <h1 className="text-[#AFF0F2] w-full h-auto text-lg sm:text-2xl lg:text-3xl font-semibold lg:pl-4 mb-2 -mt-8 lg:-mt-12 text-center lg:text-left leading-tight">Закортілося чогось новенького у рутині?</h1>
                 <p className="text-[#9AB5FFB2] w-full h-auto text-xs lg:text-sm lg:pl-4 mb-2 text-center lg:text-left">Мерщій приєднуйся до шабашу музики! Тут звучать ритми, історії!</p>
               </div>
               
@@ -135,7 +135,7 @@ export default function Home() {
           
           <div className="flex flex-row justify-center items-center gap-4 w-3/4 h-auto">
             <img src="/loader/download3.png"
-            className="w-1/5"></img>
+            className="w-1/5 h-auto"></img>
             <h2 className="text-[#94AAFF]/80 text-2xl leading-tight">Прямо з комп'ютера завантажуй музику!</h2>
           </div>
           
@@ -147,11 +147,66 @@ export default function Home() {
 
         </div>
         
-        <div className="absolute bottom-0 right-0 w-[70vw] lg:w-[38vw] h-auto z-0 pointer-events-none select-none">
+        <div className="hidden lg:block lg:absolute bottom-0 right-0 w-[70vw] lg:w-[38vw] h-auto z-0 pointer-events-none select-none">
           <img src="/loader/bg3_homescreen.png"
           className="w-full h-auto object-contain block"></img>
         </div>
+      </div>
 
+      {/* fourth page */}
+      <div className="relative w-full h-screen bg-[#061420] z-0 overflow-hidden">
+        <img src="/loader/bg4.png"
+        className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
+
+        <h1 className="text-[#C8FEFF]">Що можна у нашому застосунку?</h1>
+
+        <div className="flex flex-row">
+
+          <div className="flex-1 border border-red-900 w-full h-screen">
+            <img src="/loader/iphone4.png"></img>
+          </div>
+          
+          <div className="border border-red-900 flex flex-col w-full h-screen flex-1">
+
+            <div className="flex flex-row items-center gap-4 w-3/4 h-auto border border-red-900">
+              <div>
+                <img src="/loader/download4.png"
+                className="w-[90%] h-[90%]"></img>
+              </div>
+              <div>
+                <h2 className="text-[#92E9E4]">Крок перший</h2>
+                <h3 className="text-[#92E9E4]/70">Завантажуй додаток</h3>
+                <p className="text-[#92E9E4]/40">Поринь у світ музики — встанови додаток LumiTune за кілька секунд!</p>
+              </div>
+            </div>
+
+            <div className="flex flex-row items-center gap-4 w-3/4 h-auto border border-red-900">
+              <div>
+                <img src="/loader/music4.png"
+                className="w-[90%] h-[90%]"></img>
+              </div>
+              <div className="">
+                <h2 className="text-[#E1DAFF]">Крок другий</h2>
+                <h3 className="text-[#D6C9FF]/70">Переноси свої улюблені треки</h3>
+                <p className="text-[#A692E9]/60">Забирай треки з собою та додавай до медіатеки.</p>
+              </div>
+            </div>
+
+            <div className="flex flex-row items-center gap-4 w-3/4 h-auto border border-red-900">
+              <div>
+                <img src="/loader/headphones4.png"
+                className="w-[90%] h-[90%] border border-yellow-900"></img>
+              </div>
+              <div>
+                <h2 className="text-[#BACBFF]">Крок третій</h2>
+                <h3 className="text-[#ABC7FF]/70">Слухай оффлайн</h3>
+                <p className="text-[#929CE9]/80">Не потрібен інтернет — слухай будь-де.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        
       </div>
       
     </div>
