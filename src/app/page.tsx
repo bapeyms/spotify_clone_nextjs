@@ -154,60 +154,63 @@ export default function Home() {
       </div>
 
       {/* fourth page */}
-      <div className="relative w-full h-screen bg-[#061420] z-0 overflow-hidden">
-        <img src="/loader/bg4.png"
-        className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
-
-        <h1 className="text-[#C8FEFF]">Що можна у нашому застосунку?</h1>
-
-        <div className="flex flex-row">
-
-          <div className="flex-1 border border-red-900 w-full h-screen">
-            <img src="/loader/iphone4.png"></img>
-          </div>
+      <div className="relative w-full min-h-screen bg-[#061420] z-0 overflow-hidden flex flex-col justify-between py-12 px-6 lg:px-20">
+        <img src="/loader/bg4.png" className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none" alt="background" />
+        
+        <h1 className="text-[#C8FEFF] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center tracking-wide mb-8 mt-4 lg:mb-0">
+          Що можна у нашому застосунку?</h1>
           
-          <div className="border border-red-900 flex flex-col w-full h-screen flex-1">
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-12 lg:gap-8 flex-1">
+            
+            <div className="hidden lg:flex items-center justify-center w-[60%] select-none pointer-events-none">
+            <img src="/loader/iphone4.png" className="w-[90%] max-w-[650px] h-auto object-contain"/>
+            </div>
+            
+            <div className="flex flex-col justify-center w-[80%] lg:w-1/2 gap-22 md:gap-12 lg:pl-12">
+            <div className="flex flex-row justify-center items-center gap-5 sm:gap-6 max-w-[500px]">
 
-            <div className="flex flex-row items-center gap-4 w-3/4 h-auto border border-red-900">
-              <div>
-                <img src="/loader/download4.png"
-                className="w-[90%] h-[90%]"></img>
+              <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
+                <img src="/loader/download4.png" 
+                className="w-full h-full object-contain"/>
               </div>
-              <div>
-                <h2 className="text-[#92E9E4]">Крок перший</h2>
-                <h3 className="text-[#92E9E4]/70">Завантажуй додаток</h3>
-                <p className="text-[#92E9E4]/40">Поринь у світ музики — встанови додаток LumiTune за кілька секунд!</p>
+              
+              <div className="flex flex-col gap-1">
+                <h2 className="text-[#92E9E4] text-xl sm:text-2xl font-semibold">Крок перший</h2>
+                <h3 className="text-[#92E9E4]/70 text-base sm:text-lg font-medium">Завантажуй додаток</h3>
+                <p className="text-[#92E9E4]/40 text-xs sm:text-sm leading-relaxed">
+                Поринь у світ музики — встанови додаток LumiTune за кілька секунд!</p>
               </div>
             </div>
-
-            <div className="flex flex-row items-center gap-4 w-3/4 h-auto border border-red-900">
-              <div>
-                <img src="/loader/music4.png"
-                className="w-[90%] h-[90%]"></img>
+            
+            <div className="flex flex-row items-center gap-5 sm:gap-6 max-w-[500px]">
+              
+              <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
+                <img src="/loader/music4.png" 
+                className="w-full h-full object-contain"/>
               </div>
-              <div className="">
-                <h2 className="text-[#E1DAFF]">Крок другий</h2>
-                <h3 className="text-[#D6C9FF]/70">Переноси свої улюблені треки</h3>
-                <p className="text-[#A692E9]/60">Забирай треки з собою та додавай до медіатеки.</p>
-              </div>
-            </div>
-
-            <div className="flex flex-row items-center gap-4 w-3/4 h-auto border border-red-900">
-              <div>
-                <img src="/loader/headphones4.png"
-                className="w-[90%] h-[90%] border border-yellow-900"></img>
-              </div>
-              <div>
-                <h2 className="text-[#BACBFF]">Крок третій</h2>
-                <h3 className="text-[#ABC7FF]/70">Слухай оффлайн</h3>
-                <p className="text-[#929CE9]/80">Не потрібен інтернет — слухай будь-де.</p>
+              
+              <div className="flex flex-col gap-1">
+                <h2 className="text-[#E1DAFF] text-xl sm:text-2xl font-semibold">Крок другий</h2>
+                <h3 className="text-[#D6C9FF]/70 text-base sm:text-lg font-medium">Переноси свої улюблені треки</h3>
+                <p className="text-[#A692E9]/60 text-xs sm:text-sm leading-relaxed">Забирай треки з собою та додавай до медіатеки.</p>
               </div>
             </div>
-
+            
+            <div className="flex flex-row items-center gap-5 sm:gap-6 max-w-[500px]">
+              <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
+                <img src="/loader/headphones4.png" 
+                className="w-full h-full object-contain"/>
+              </div>
+              
+              <div className="flex flex-col gap-1">
+                <h2 className="text-[#BACBFF] text-xl sm:text-2xl font-semibold">Крок третій</h2>
+                <h3 className="text-[#ABC7FF]/70 text-base sm:text-lg font-medium">Слухай оффлайн</h3>
+                <p className="text-[#929CE9]/80 text-xs sm:text-sm leading-relaxed">Не потрібен інтернет — слухай будь-де.</p>
+              </div>
+            </div>
+            </div>
           </div>
         </div>
-        
-      </div>
       
     </div>
   );
