@@ -31,7 +31,7 @@ export default function SingIN() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="min-h-screen flex items-start justify-center  px-4 py-10"
+      className="min-h-screen flex items-center justify-center  px-4 py-10"
     >
       <div className="box-border flex w-[620px] shrink-0 flex-col items-center rounded-xl border border-[#496999] bg-[#070D1A] px-12 py-8">
         <img className="h-24 w-24" src="/general/logo.png" alt="logo" />
