@@ -1,9 +1,11 @@
 "use client";
-
+import Link from "next/link"
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { validateEmail, validatePassword } from "./validation";
 
 export default function SingIN() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -109,9 +111,9 @@ export default function SingIN() {
 
         <div className="flex justify-center gap-2 text-base">
           <p className="text-[#496999]">Немає аккаунта?</p>
-          <a className="cursor-pointer font-bold underline text-[#93B7FF]" href="/signup">
+          <Link className="cursor-pointer font-bold underline text-[#93B7FF]" href="/signup">
             Реєстрація у LumiTune
-          </a>
+          </Link>
         </div>
       </div>
     </form>
