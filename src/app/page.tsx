@@ -131,16 +131,16 @@ export default function Home() {
         className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none"></img>
         
         <div className="w-full lg:w-1/2 h-full flex flex-col justify-center items-center px-6 gap-12 z-10">
-          <h1 className="w-3/4 h-auto text-[#BCE3FF] text-4xl">Додавай свої треки до медіатеки!</h1>
+          <h1 className="w-3/4 h-auto text-[#BCE3FF] text-3xl lg:text-4xl">Додавай свої треки до медіатеки!</h1>
           
           <div className="flex flex-row justify-center items-center gap-4 w-3/4 h-auto">
             <img src="/loader/download3.png"
             className="w-1/5 h-auto"></img>
-            <h2 className="text-[#94AAFF]/80 text-2xl leading-tight">Прямо з комп'ютера завантажуй музику!</h2>
+            <h2 className="text-[#94AAFF]/80 text-xl lg:text-2xl leading-tight">Прямо з комп'ютера завантажуй музику!</h2>
           </div>
           
           <div className="flex flex-row justify-center items-center gap-4 w-3/4 h-auto">
-            <h2 className="text-[#94FFFF]/80 text-2xl leading-tight">Створюй плейлисти та слухай, коли хочеш!</h2>
+            <h2 className="text-[#94FFFF]/80 text-xl lg:text-2xl leading-tight">Створюй плейлисти та слухай, коли хочеш!</h2>
             <img src="/loader/pencil3.png"
             className="w-1/5"></img>
           </div>
@@ -155,18 +155,20 @@ export default function Home() {
 
       {/* fourth page */}
       <div className="relative w-full min-h-screen bg-[#061420] z-0 overflow-hidden flex flex-col justify-between py-12 px-6 lg:px-20">
-        <img src="/loader/bg4.png" className="absolute -z-10 inset-0 w-full h-full object-cover pointer-events-none" alt="background" />
+        <img src="/loader/bg4.png" 
+        className="absolute -z-10 inset-0 w-full h-full min-w-full min-h-full object-cover object-center pointer-events-none" alt="background" />
         
-        <h1 className="text-[#C8FEFF] text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center tracking-wide mb-8 mt-4 lg:mb-0">
+        <h1 className="text-[#C8FEFF] text-2xl sm:text-3xl md:text-4xl lg:text-4xl text-center tracking-wide mb-4 mt-4 lg:mb-0">
           Що можна у нашому застосунку?</h1>
           
           <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-7xl mx-auto gap-12 lg:gap-8 flex-1">
             
             <div className="hidden lg:flex items-center justify-center w-[60%] select-none pointer-events-none">
-            <img src="/loader/iphone4.png" className="w-[90%] max-w-[650px] h-auto object-contain"/>
+            <img src="/loader/iphone4.png" 
+            className="w-[90%] max-w-[650px] h-auto object-contain"/>
             </div>
             
-            <div className="flex flex-col justify-center w-[80%] lg:w-1/2 gap-22 md:gap-12 lg:pl-12">
+            <div className="flex flex-col justify-center w-[80%] lg:w-1/2 gap-18 md:gap-12 lg:pl-12">
             <div className="flex flex-row justify-center items-center gap-5 sm:gap-6 max-w-[500px]">
 
               <div className="w-16 h-16 sm:w-20 sm:h-20 flex-shrink-0 flex items-center justify-center">
@@ -209,6 +211,29 @@ export default function Home() {
               </div>
             </div>
             </div>
+          </div>
+        </div>
+
+        {/* sixth page */}
+        <div className="relative w-full h-screen bg-[#061420] z-0 overflow-hidden flex flex-col justify-center px-6 lg:px-20">
+          <img src="/loader/bg5.png" 
+          className="absolute -z-10 inset-0 w-full h-full object-cover scale-200 lg:scale-100 pointer-events-none" alt="background" />
+          
+          <img src="/loader/bg_pic1_5.png" alt="left character" 
+          className="hidden lg:block absolute left-0 bottom-0 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 w-1/3 max-w-[500px] md:max-w-[600px] -z-10 object-contain pointer-events-none"/>
+          
+          <img src="/loader/bg_pic2_5.png" alt="right character" 
+          className="hidden lg:block absolute right-0 bottom-0 lg:bottom-auto lg:top-1/2 lg:-translate-y-1/2 w-1/3 max-w-[300px] md:max-w-[500px] -z-10 object-contain pointer-events-none"/>
+          
+          <div className="flex flex-col justify-center items-center gap-2">
+            <h1 className="text-[#AFF0F2] font-semibold text-2xl md:text-3xl lg:text-4xl">ЗАЦІКАВИЛИСЯ?</h1>
+            <h1 className="text-[#AFF0F2] font-bold text-2xl md:text-3xl lg:text-4xl">СКОРІШЕ ПРИЄДНУЙТЕСЯ!</h1>
+            <button className="flex flex-row items-center gap-2 bg-[#2BD9F2] rounded-sm px-4 py-2 mt-4 lg:mt-6
+            hover:bg-[#AFF0F2] transition-all cursor-pointer">
+              <img src="/loader/download5.png"
+              className="w-4 h-4 lg:w-5 lg:h-5 object-contain"></img>
+              <span className="text-[#02192E] font-semibold lg:text-lg">Завантажити застосунок</span>
+              </button>
           </div>
         </div>
       
