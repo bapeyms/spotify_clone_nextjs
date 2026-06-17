@@ -33,7 +33,9 @@ export default function Home() {
                 <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підтримка</li>
                 <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Завантажити додаток</li>
               </ul>
-              <button className="border border-[#93E8FF] px-3 py-1 rounded hover:bg-[#93E8FF] hover:text-[#061420] transition-all duration-200">Реєстрація</button>
+              <Link href="/signup"
+               className="border border-[#93E8FF] px-3 py-1 rounded hover:bg-[#93E8FF] hover:text-[#061420] transition-all duration-200 cursor-pointer">
+                Реєстрація</Link>
             </div>
             
             <button onClick={() => setIsOpen(!isOpen)}
@@ -57,8 +59,10 @@ export default function Home() {
                       <li onClick={() => setIsOpen(false)} className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підтримка</li>
                       <li onClick={() => setIsOpen(false)} className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Завантажити додаток</li>
                     </ul>
-                    <button onClick={() => setIsOpen(false)} className="border border-[#93E8FF] text-[#93E8FF] px-6 py-2 rounded text-lg hover:bg-[#93E8FF] hover:text-[#061420] transition-all duration-200 w-48 text-center">
-                      Реєстрація</button>
+                    <Link href="/signup"
+                    className="border border-[#93E8FF] text-[#93E8FF] px-6 py-2 rounded text-lg hover:bg-[#93E8FF] 
+                    hover:text-[#061420] transition-all duration-200 w-48 text-center cursor-pointer">
+                      Реєстрація</Link>
                 </div>
             </nav>
         </header>
@@ -79,10 +83,12 @@ export default function Home() {
               </div>
               
               <div className="flex flex-col lg:flex-row w-3/5 lg:w-3/4 items-center justify-center gap-2 lg:gap-6 mt-2">
-                <button className="bg-[#02192E] text-[#2BD9F2] w-full lg:w-1/2 py-2 rounded-lg font-semibold
-                hover:bg-[#2BD9F2] hover:text-[#02192E] transition-all cursor-pointer">Перейти на сайт</button>
-                <button className="bg-[#2BD9F2] text-[#02192E] w-full lg:w-1/2 py-2 rounded-lg font-semibold
-                hover:bg-[#02192E] hover:text-[#2BD9F2] transition-all cursor-pointer">Зареєструватися</button>
+                <Link href="/mainpage"
+                className="bg-[#02192E] text-[#2BD9F2] text-center w-full lg:w-1/2 py-2 rounded-lg font-semibold
+                hover:bg-[#2BD9F2] hover:text-[#02192E] transition-all cursor-pointer">Перейти на сайт</Link>
+                <Link href="/signup"
+                className="bg-[#2BD9F2] text-[#02192E] text-center w-full lg:w-1/2 py-2 rounded-lg font-semibold
+                hover:bg-[#02192E] hover:text-[#2BD9F2] transition-all cursor-pointer">Зареєструватися</Link>
               </div>
             </div>
 
@@ -236,6 +242,70 @@ export default function Home() {
               </button>
           </div>
         </div>
+
+        {/* footer */}
+        <footer className="w-full h-[70vh] bg-[#061420] rounded-lg border border-[#93E8FF]/30 flex flex-col items-center justify-center">
+          <div className="flex flex-row w-[75vw] h-auto justify-between border-b border-[#93E8FF]/30 pb-4">
+            <img src="/loader/footer_logo.png"
+            className="w-72 h-72"></img>
+
+            <div className="flex flex-col gap-4 justify-center">
+              <div className="flex flex-col gap-4 text-[#FFFFFF]">
+
+                <div className="flex flex-row gap-4 items-center">
+                <img src="/loader/location_footer.png"
+                className="w-4 h-4 object-contain"></img>
+                <p>Adress st. Shevchenko, 25 house, UA, Odessa, 00000</p>
+              </div>
+
+              <div className="flex flex-row gap-4 items-center">
+                <img src="/loader/phone_footer.png"
+                className="w-4 h-4 object-contain"></img>
+                <p>(380) 00-000-00-00</p>
+              </div>
+
+              <div className="flex flex-row gap-4 items-center">
+                <img src="/loader/mail_footer.png"
+                className="w-4 h-4 object-contain"></img>
+                <p>lumitune@gmail.com</p>
+              </div>
+            </div>
+
+            <div className="flex flex-row gap-2">
+              <img src="/loader/facebook_footer.png" alt="facebook"
+              className="cursor-pointer"></img>
+              <img src="/loader/twitter_footer.png" alt="twitter"
+              className="cursor-pointer"></img>
+              <img src="/loader/pinterest_footer.png" alt="pinterest"
+              className="cursor-pointer"></img>
+              <img src="/loader/rss_footer.png" alt="rss"
+              className="cursor-pointer"></img>
+            </div>
+
+            </div>
+            
+          </div>
+
+          <nav aria-label="Footer Navigation">
+            <ul className="flex flex-row flex-wrap justify-center items-center gap-6 md:gap-12 text-[#BCE3FF]/60 text-sm lg:text-base">
+            <li>
+        <a href="/about" className="hover:text-[#93E8FF] transition-colors">About us</a>
+      </li>
+      <li>
+        <a href="/contacts" className="hover:text-[#93E8FF] transition-colors">Contact us</a>
+      </li>
+      <li>
+        <a href="/help" className="hover:text-[#93E8FF] transition-colors">Help</a>
+      </li>
+      <li>
+        <a href="/privacy" className="hover:text-[#93E8FF] transition-colors">Privacy Policy</a>
+      </li>
+      <li>
+        <a href="/disclaimer" className="hover:text-[#93E8FF] transition-colors">Disclaimer</a>
+      </li>
+    </ul>
+  </nav>
+        </footer>
       
     </div>
   );
