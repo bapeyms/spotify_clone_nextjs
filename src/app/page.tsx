@@ -263,17 +263,17 @@ export default function Home() {
 
         {/* footer */}
         <footer className="w-full h-[70vh] bg-[#061420] rounded-lg border border-[#93E8FF]/30 flex flex-col items-center justify-center gap-6">
-          <div className="flex flex-row w-[75vw] h-auto justify-between border-b border-[#93E8FF]/30 pb-4">
+          <div className="flex flex-col items-center md:flex-row w-[75vw] h-auto md:justify-between border-b border-[#93E8FF]/30 pb-4 gap-8">
             <img src="/loader/footer_logo.png"
-            className="w-72 h-72"></img>
+            className="hidden md:block w-60 h-60 lg:w-72 lg:h-72"></img>
 
-            <div className="flex flex-col gap-4 justify-center">
-              <div className="flex flex-col gap-4 text-[#FFFFFF]">
+            <div className="flex flex-col gap-6 md:gap-4 justify-center items-center md:items-start">
+              <div className="flex flex-col gap-6 md:gap-4  text-[#FFFFFF] items-center md:items-start">
 
                 <div className="flex flex-row gap-4 items-center">
                 <img src="/loader/location_footer.png"
                 className="w-4 h-4 object-contain"></img>
-                <p>Adress st. Shevchenko, 25 house, UA, Odessa, 00000</p>
+                <p className="text-center md:text-left">Adress st. Shevchenko, 25 house, UA, Odessa, 00000</p>
               </div>
 
               <div className="flex flex-row gap-4 items-center">
@@ -289,7 +289,7 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="flex flex-row gap-2">
+            <div className="flex flex-row gap-2 justify-center md:justify-start">
               <a href="https://www.facebook.com/"
               target="_blank" 
               rel="noopener noreferrer"
@@ -322,7 +322,7 @@ export default function Home() {
           </div>
 
           <nav aria-label="Footer Navigation">
-            <ul className="flex flex-row flex-wrap justify-center items-center gap-6 md:gap-12 text-[#BCE3FF]/60 text-sm lg:text-base">
+            <ul className="flex flex-col md:flex-row flex-wrap justify-center items-center gap-6 md:gap-12 text-[#BCE3FF]/60 text-sm lg:text-base">
             <li><Link href="/about" 
             className="hover:text-[#93E8FF] transition-colors">About us</Link></li>
 
