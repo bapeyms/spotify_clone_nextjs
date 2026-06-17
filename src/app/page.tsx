@@ -29,42 +29,58 @@ export default function Home() {
           <nav className="flex gap-7 font-semibold">
             <div className="hidden md:flex items-center gap-9">
               <ul className="flex flex-row gap-6 text-[#88BCD6]">
-                <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підписки</li>
-                <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підтримка</li>
-                <li className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Завантажити додаток</li>
+                <li><Link href="/subscriptions" className="hover:text-[#2BD9F2] transition-colors">Підписки</Link></li>
+                <li><Link href="/support"className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підтримка</Link></li>
+                <li><a href="#" 
+                onClick={(e) => e.preventDefault()}
+                className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Завантажити додаток</a></li>
               </ul>
               <Link href="/signup"
                className="border border-[#93E8FF] px-3 py-1 rounded hover:bg-[#93E8FF] hover:text-[#061420] transition-all duration-200 cursor-pointer">
                 Реєстрація</Link>
             </div>
             
-            <button onClick={() => setIsOpen(!isOpen)}
-              className="md:hidden text-[#2BD9F2] focus:outline-none cursor-pointer p-2 z-50 relative"
-              aria-label="Toggle menu">
-                {isOpen ? (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
-                  </svg>
+            <button 
+            onClick={() => setIsOpen(!isOpen)}
+            className="md:hidden text-[#2BD9F2] focus:outline-none cursor-pointer p-2 z-50 relative"
+            aria-label="Toggle menu">
+              
+              {isOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
                   ) : (
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-                  </svg>)}
-                </button>
-                
-                <div className={`fixed inset-0 bg-[#061420]/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-6 transition-all duration-300 md:hidden ${
-                  isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
-                    
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"/>
+                </svg>
+                )}
+              </button>
+              
+              <div className={`fixed inset-0 bg-[#061420]/95 backdrop-blur-md z-40 flex flex-col items-center justify-center gap-6 transition-all duration-300 md:hidden ${
+                isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"}`}>
+                  
+                  <nav aria-label="Mobile Navigation">
                     <ul className="flex flex-col items-center gap-6 text-[#88BCD6] text-xl">
-                      <li onClick={() => setIsOpen(false)} className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підписки</li>
-                      <li onClick={() => setIsOpen(false)} className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Підтримка</li>
-                      <li onClick={() => setIsOpen(false)} className="hover:text-[#2BD9F2] transition-colors cursor-pointer">Завантажити додаток</li>
+                      <li><Link href="/subscriptions" 
+                      onClick={() => setIsOpen(false)} 
+                      className="hover:text-[#2BD9F2] transition-colors block py-2">Підписки</Link></li>
+
+                      <li><Link href="/support" 
+                      onClick={() => setIsOpen(false)} 
+                      className="hover:text-[#2BD9F2] transition-colors block py-2">Підтримка</Link></li>
+
+                      <li><Link href="/download" 
+                      onClick={() => setIsOpen(false)} 
+                      className="hover:text-[#2BD9F2] transition-colors block py-2">Завантажити додаток</Link></li>
                     </ul>
-                    <Link href="/signup"
-                    className="border border-[#93E8FF] text-[#93E8FF] px-6 py-2 rounded text-lg hover:bg-[#93E8FF] 
-                    hover:text-[#061420] transition-all duration-200 w-48 text-center cursor-pointer">
-                      Реєстрація</Link>
-                </div>
-            </nav>
+                  </nav>
+                  
+                  <Link href="/signup"
+                  onClick={() => setIsOpen(false)} 
+                  className="flex items-center justify-center border border-[#93E8FF] text-[#93E8FF] px-6 py-2 rounded text-lg hover:bg-[#93E8FF] hover:text-[#061420] transition-all duration-200 w-48 text-center">
+                    Реєстрація</Link>
+                  </div>
+          </nav>
         </header>
 
         {/* first page main content */}
@@ -234,17 +250,19 @@ export default function Home() {
           <div className="flex flex-col justify-center items-center gap-2">
             <h1 className="text-[#AFF0F2] font-semibold text-2xl md:text-3xl lg:text-4xl">ЗАЦІКАВИЛИСЯ?</h1>
             <h1 className="text-[#AFF0F2] font-bold text-2xl md:text-3xl lg:text-4xl">СКОРІШЕ ПРИЄДНУЙТЕСЯ!</h1>
-            <button className="flex flex-row items-center gap-2 bg-[#2BD9F2] rounded-sm px-4 py-2 mt-4 lg:mt-6
+            <a href="#" 
+            onClick={(e) => e.preventDefault()}
+            className="flex flex-row items-center gap-2 bg-[#2BD9F2] rounded-sm px-4 py-2 mt-4 lg:mt-6
             hover:bg-[#AFF0F2] transition-all cursor-pointer">
               <img src="/loader/download5.png"
-              className="w-4 h-4 lg:w-5 lg:h-5 object-contain"></img>
-              <span className="text-[#02192E] font-semibold lg:text-lg">Завантажити застосунок</span>
-              </button>
+              className="w-4 h-4 object-contain"></img>
+              <span className="text-[#02192E] font-semibold lg:text-md">Завантажити застосунок</span>
+              </a>
           </div>
         </div>
 
         {/* footer */}
-        <footer className="w-full h-[70vh] bg-[#061420] rounded-lg border border-[#93E8FF]/30 flex flex-col items-center justify-center">
+        <footer className="w-full h-[70vh] bg-[#061420] rounded-lg border border-[#93E8FF]/30 flex flex-col items-center justify-center gap-6">
           <div className="flex flex-row w-[75vw] h-auto justify-between border-b border-[#93E8FF]/30 pb-4">
             <img src="/loader/footer_logo.png"
             className="w-72 h-72"></img>
@@ -272,41 +290,56 @@ export default function Home() {
             </div>
 
             <div className="flex flex-row gap-2">
-              <img src="/loader/facebook_footer.png" alt="facebook"
-              className="cursor-pointer"></img>
-              <img src="/loader/twitter_footer.png" alt="twitter"
-              className="cursor-pointer"></img>
-              <img src="/loader/pinterest_footer.png" alt="pinterest"
-              className="cursor-pointer"></img>
-              <img src="/loader/rss_footer.png" alt="rss"
-              className="cursor-pointer"></img>
-            </div>
+              <a href="https://www.facebook.com/"
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Open Facebook">
+                <img src="/loader/facebook_footer.png" alt="facebook" className="cursor-pointer"></img>
+              </a>
 
+              <a href="https://x.com/"
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Open X">
+                <img src="/loader/twitter_footer.png" alt="twitter" className="cursor-pointer"></img>
+              </a>
+              
+              <a href="https://www.pinterest.com/"
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Open Pinterest">
+                <img src="/loader/pinterest_footer.png" alt="pinterest" className="cursor-pointer"></img>
+              </a>
+
+              <a href="https://uk.wikipedia.org/wiki/RSS"
+              target="_blank" 
+              rel="noopener noreferrer"
+              aria-label="Open Pinterest">
+                <img src="/loader/rss_footer.png" alt="rss" className="cursor-pointer"></img>
+              </a>
             </div>
-            
+            </div>
           </div>
 
           <nav aria-label="Footer Navigation">
             <ul className="flex flex-row flex-wrap justify-center items-center gap-6 md:gap-12 text-[#BCE3FF]/60 text-sm lg:text-base">
-            <li>
-        <a href="/about" className="hover:text-[#93E8FF] transition-colors">About us</a>
-      </li>
-      <li>
-        <a href="/contacts" className="hover:text-[#93E8FF] transition-colors">Contact us</a>
-      </li>
-      <li>
-        <a href="/help" className="hover:text-[#93E8FF] transition-colors">Help</a>
-      </li>
-      <li>
-        <a href="/privacy" className="hover:text-[#93E8FF] transition-colors">Privacy Policy</a>
-      </li>
-      <li>
-        <a href="/disclaimer" className="hover:text-[#93E8FF] transition-colors">Disclaimer</a>
-      </li>
-    </ul>
-  </nav>
+            <li><Link href="/about" 
+            className="hover:text-[#93E8FF] transition-colors">About us</Link></li>
+
+            <li><Link href="/contacts" 
+            className="hover:text-[#93E8FF] transition-colors">Contact us</Link></li>
+
+            <li><Link href="/help" 
+            className="hover:text-[#93E8FF] transition-colors">Help</Link></li>
+
+            <li><Link href="/privacy" 
+            className="hover:text-[#93E8FF] transition-colors">Privacy Policy</Link></li>
+
+            <li><Link href="/disclaimer" 
+            className="hover:text-[#93E8FF] transition-colors">Disclaimer</Link></li>
+            </ul>
+          </nav>
         </footer>
-      
     </div>
   );
 }
