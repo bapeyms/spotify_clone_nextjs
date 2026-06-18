@@ -5,8 +5,7 @@ import Image from "next/image"
 
 export default function Navbar() {
     return(
-        <div className="flex flex-col w-full h-screen bg-[#061420]">
-            <nav className="w-full h-auto flex flex-row justify-between items-center text-[#A6DAFF] px-4 lg:px-8 border-b border-[#93E8FF]/30">
+        <nav className="w-full h-16 flex flex-row justify-between items-center bg-[#061420] text-[#A6DAFF] px-4 lg:px-8 border-b border-[#93E8FF]/30 shrink-0">
             <Link href="/">
             <Image src="/dashboard/pagehome/logo.png" alt="LumiTune"
             width={75} height={75}
@@ -40,7 +39,6 @@ export default function Navbar() {
                 className="w-10 h-10 object-contain cursor-pointer"/>
                 </Link>
             </div>
-            </nav>
-        </div>
+        </nav>
     )
 }
