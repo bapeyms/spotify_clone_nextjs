@@ -11,7 +11,7 @@ export default function Landing() {
     return (
     <div className="bg-[#061420] flex flex-col overflow-x-hidden">
         {/* first page */}
-        <div className="flex flex-col w-full h-screen font-sans">
+        <div className="flex flex-col w-full h-screen">
         <header className="flex flex-row justify-between items-center text-[#A6DAFF] px-3 border-b border-[#93E8FF]/30">
           <div>
             <Link href="/">
@@ -99,7 +99,7 @@ export default function Landing() {
               </div>
               
               <div className="flex flex-col lg:flex-row w-3/5 lg:w-3/4 items-center justify-center gap-2 lg:gap-6 mt-2">
-                <Link href="/mainpage"
+                <Link href="/homepage"
                 className="bg-[#02192E] text-[#2BD9F2] text-center w-full lg:w-1/2 py-2 rounded-lg font-semibold
                 hover:bg-[#2BD9F2] hover:text-[#02192E] transition-all cursor-pointer">Перейти на сайт</Link>
                 <Link href="/signup"
