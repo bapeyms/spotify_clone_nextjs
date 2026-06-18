@@ -13,14 +13,14 @@ export default function Landing() {
         {/* first page */}
         <div className="flex flex-col w-full h-screen">
         <header className="flex flex-row justify-between items-center text-[#A6DAFF] px-3 border-b border-[#93E8FF]/30">
-          <div>
+          <div className="flex items-center">
             <Link href="/">
             <Image
             src="/loader/loader_logo.png"
             alt="LumiTune"
             width={150}
             height={150}
-            className="mt-1"
+            className="mt-1 object-contain"
             />
             </Link>
           </div>
