@@ -1,4 +1,5 @@
 import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 export default function LandingLayout({
   children,
@@ -7,8 +8,13 @@ export default function LandingLayout({
 }) {
   return (
     <div className="flex flex-col min-h-screen bg-[#061420] font-sans text-white">
-      <main className="flex-grow">{children}</main>
-      <Footer/>
+      <Navbar />
+      
+      <main className="flex-grow">
+        {children}
+      </main>
+      
+      <Footer />
     </div>
   );
 }
