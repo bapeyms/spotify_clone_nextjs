@@ -24,8 +24,11 @@ export default function SignUP2() {
   const [country, setCountry] = useState("");
   const [city, setCity] = useState("");
   const [role, setRole] = useState("");
-
   const [errors, setErrors] = useState<Step2Errors>({});
+  const currentStep = 2;
+  const totalSteps = 2;
+  const progress = (currentStep / totalSteps) * 100;
+
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -42,9 +45,7 @@ export default function SignUP2() {
 
     setErrors(validationErrors);
 
-    if (Object.keys(validationErrors).length > 0) {
-      return;
-    }
+    if (Object.keys(validationErrors).length > 0) return;
 
     console.log("Все правильно");
   }
@@ -52,44 +53,85 @@ export default function SignUP2() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="min-h-screen flex items-center justify-center px-4 py-10"
+      className="min-h-screen flex items-start justify-center px-4 pt-6 pb-6 md:items-center md:py-10"
     >
-      <div className="box-border flex w-[620px] shrink-0 flex-col items-center rounded-xl border border-[#496999] bg-[#070D1A] px-12 py-8">
-        <div className="w-full flex justify-start">
-          <button
-            type="button"
-            onClick={() => router.push("/signup1step")}
-            className="text-[#93B7FF] underline"
-          >
-            Назад
-          </button>
-        </div>
+      <div
+        className="
+          relative
+          box-border
+          flex
+          w-[620px]
+          flex-col
+          items-center
+          rounded-xl
+          border
+          border-[#496999]
+          bg-[#070D1A]
+          px-12
+          py-8
+          max-[768px]:w-full
+          max-[768px]:rounded-none
+          max-[768px]:border-none
+          max-[768px]:bg-transparent
+          max-[768px]:px-2
+        "
+      >
+        <button
+          type="button"
+          onClick={() => router.push("/signup1step")}
+          className="absolute left-4 top-4 text-[#93B7FF] underline"
+        >
+          Назад
+        </button>
 
-        <img className="h-24 w-24" src="/general/logo.png" alt="logo" />
+        <img
+          className="mt-8 h-40 w-40 max-[768px]:mt-12 max-[768px]:h-36 max-[768px]:w-36"
+          src="/general/logo.png"
+          alt="logo"
+        />
 
-        <h1 className="mt-2 text-center text-3xl font-bold text-white">
-          Створіть профіль
+        <h1 className="mt-2 text-center text-3xl font-bold text-white max-[768px]:text-2xl">
+          Пориньте вперше у LumiTune
         </h1>
 
-        <p className="text-[#8A8A8A]">Крок 2 із 2</p>
+        <p className="mt-2 text-[#8A8A8A] max-[768px]:text-base">
+          Крок {currentStep} із {totalSteps}
+        </p>
 
-        <div className="mt-2 w-full">
-          <div className="h-1 w-full rounded-full bg-[#37B6FF]"></div>
+        <div className="mt-2 w-full max-w-[520px] max-[768px]:max-w-none">
+          <div className="h-1 overflow-hidden rounded-full bg-[#2A3C55]">
+            <div
+              className="
+        h-full
+        rounded-full
+        bg-gradient-to-r
+        from-[#37B6FF]
+        to-[#6AD5FF]
+        shadow-[0_0_10px_rgba(55,182,255,0.5)]
+        transition-all
+        duration-700
+        ease-out
+      "
+              style={{ width: `${progress}%` }}
+            />
+          </div>
         </div>
 
-        <div className="mt-7 w-full max-w-[520px]">
-          <label className="text-xl text-white">Ім'я</label>
+        <div className="mt-7 w-full max-w-[520px] max-[768px]:max-w-none">
+          <label className="block text-xl text-white max-[768px]:text-base">
+            Ім&apos;я
+          </label>
 
           <p className="text-base text-[#8A8A8A]">
-            Це ім'я відображатиметься в профілі
+            Це ім&apos;я відображатиметься в профілі
           </p>
 
           <input
             type="text"
-            placeholder="Ім'я"
+            placeholder="Ім&apos;я"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-3 w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none placeholder:text-[#6B7FA8]"
+            className="mt-3 w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:py-3 max-[768px]:text-base"
           />
 
           {errors.name && (
@@ -97,8 +139,10 @@ export default function SignUP2() {
           )}
         </div>
 
-        <div className="mt-6 w-full max-w-[520px]">
-          <label className="block text-xl text-white">Дата народження</label>
+        <div className="mt-6 w-full max-w-[520px] max-[768px]:max-w-none">
+          <label className="block text-xl text-white max-[768px]:text-base">
+            Дата народження
+          </label>
 
           <p className="text-base text-[#8A8A8A]">
             Для чого нам потрібна ваша дата народження?
@@ -108,19 +152,19 @@ export default function SignUP2() {
             Докладніше
           </button>
 
-          <div className="mt-3 flex gap-5">
+          <div className="mt-3 flex gap-5 max-[768px]:gap-3">
             <input
               type="text"
               placeholder="дд"
               value={day}
               onChange={(e) => setDay(e.target.value)}
-              className="w-20 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none placeholder:text-[#6B7FA8]"
+              className="w-20 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px] max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
             />
 
             <select
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              className="flex-1 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none"
+              className="flex-1 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
             >
               <option value="" disabled>
                 Місяць
@@ -144,7 +188,7 @@ export default function SignUP2() {
               placeholder="рррр"
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="w-24 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none placeholder:text-[#6B7FA8]"
+              className="w-24 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px] max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
             />
           </div>
 
@@ -153,25 +197,29 @@ export default function SignUP2() {
           )}
         </div>
 
-        <div className="mt-6 w-full max-w-[520px]">
-          <label className="block text-xl text-white">Регіон проживання</label>
+        <div className="mt-6 w-full max-w-[520px] max-[768px]:max-w-none">
+          <label className="block text-xl text-white max-[768px]:text-base">
+            Регіон проживання
+          </label>
 
-          <p className="text-base text-[#8A8A8A] mt-1">
-            Для чого нам потрібна ваше місце проживання?
+          <p className="mt-1 text-base text-[#8A8A8A]">
+            Для чого нам потрібне ваше місце проживання?
           </p>
 
           <button type="button" className="mt-1 text-[#8A8A8A] underline">
             Докладніше
           </button>
 
-          <div className="mt-6 flex gap-6">
+          <div className="mt-6 flex gap-6 max-[768px]:gap-3">
             <div className="flex-1">
-              <label className="block mb-2 text-xl text-white">Країна</label>
+              <label className="mb-2 block text-xl text-white max-[768px]:text-base">
+                Країна
+              </label>
 
               <select
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none"
+                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
               >
                 <option value="" disabled>
                   Країна
@@ -187,12 +235,14 @@ export default function SignUP2() {
             </div>
 
             <div className="flex-1">
-              <label className="block mb-2 text-xl text-white">Місто</label>
+              <label className="mb-2 block text-xl text-white max-[768px]:text-base">
+                Місто
+              </label>
 
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none"
+                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
               >
                 <option value="" disabled>
                   Місто
@@ -209,7 +259,9 @@ export default function SignUP2() {
           </div>
 
           <div className="mt-8">
-            <p className="mb-4 text-xl text-white">Хто ви?</p>
+            <p className="mb-4 text-xl text-white max-[768px]:text-base">
+              Хто ви?
+            </p>
 
             <label className="mb-3 flex items-center gap-3 text-white">
               <input
@@ -241,8 +293,9 @@ export default function SignUP2() {
           <button
             type="submit"
             className="mt-8 w-full rounded-xl bg-[#1DA1F2] px-4 py-3 text-xl font-bold text-black transition hover:bg-[#39b8ff]"
+            onClick={() => router.push("/signin")}
           >
-            Зареєструватися
+            Далі
           </button>
         </div>
       </div>
