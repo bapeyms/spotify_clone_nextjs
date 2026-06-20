@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation"
 import { MENU_ARTISTS } from "@/data/homepage/menu_artists";
 
 export default function LeftNavbar() {
-
+  
   const pathname = usePathname();
 
   const getLinkClass = (href: string) => {
@@ -17,7 +17,7 @@ export default function LeftNavbar() {
   };
 
     return (
-        <aside className="w-64 h-full bg-[#0C0C0C]/40 rounded-l-lg border border-[#93E8FF]/30 p-5 flex flex-col gap-6 shrink-0 flex ml-1 mb-2">
+        <aside className="w-64 h-full bg-[#0C0C0C]/40 rounded-l-lg border border-[#93E8FF]/30 p-5 hidden md:flex flex-col gap-6 shrink-0 flex ml-1 mb-2">
           <div className="flex flex-col gap-4 pb-8 border-b border-[#93E8FF]/30">
             
             <div className="text-lg font-semibold text-white">
