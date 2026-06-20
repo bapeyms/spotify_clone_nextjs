@@ -60,7 +60,7 @@ export function validateBirthDate(day: string, month: string, year: string) {
     return "Оберіть місяць";
   }
 
-  if (!Number.isInteger(y) || y < 1900 || y > new Date().getFullYear()) {
+  if (!Number.isInteger(y) || y < 1950 || y > new Date().getFullYear()) {
     return "Введіть коректний рік";
   }
 

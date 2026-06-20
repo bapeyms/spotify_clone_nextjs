@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { validateSignUpStep2 } from "./validation";
 
@@ -27,7 +27,16 @@ export default function SignUP2() {
   const [errors, setErrors] = useState<Step2Errors>({});
   const currentStep = 2;
   const totalSteps = 2;
-  const progress = (currentStep / totalSteps) * 100;
+  const targetProgress = (currentStep / totalSteps) * 100;
+  const [progress, setProgress] = useState(0);
+
+  useEffect(() => {
+    const id = requestAnimationFrame(() => {
+      setProgress(targetProgress);
+    });
+
+    return () => cancelAnimationFrame(id);
+  }, [targetProgress]);
 
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
@@ -46,36 +55,30 @@ export default function SignUP2() {
     setErrors(validationErrors);
 
     if (Object.keys(validationErrors).length > 0) return;
-
-    console.log("Все правильно");
+    router.push("/homepage");
   }
 
   return (
     <form
       onSubmit={handleSubmit}
       className="
-    min-h-screen
-    flex
-    items-start
-    justify-center
-    px-4
-    pt-6
-    pb-6
-    md:items-center
-    md:py-10
-    
-    bg-[url('/general/back.png')]
-    bg-cover
-    bg-center
-    bg-no-repeat
-    bg-fixed
+      min-h-screen
+      flex
+      items-start
+      justify-center
+      px-4
+      pt-6
+      pb-6
+      md:items-center
+      md:py-10
   ">
       <div
         className="
-          relative
-          box-border
           flex
           w-[620px]
+          max-w-[620px]
+          relative
+          box-border
           flex-col
           items-center
           rounded-xl
@@ -89,8 +92,7 @@ export default function SignUP2() {
           max-[768px]:border-none
           max-[768px]:bg-transparent
           max-[768px]:px-2
-        "
-      >
+        ">
         <button
           type="button"
           onClick={() => router.push("/signup1step")}
@@ -307,9 +309,7 @@ export default function SignUP2() {
 
           <button
             type="submit"
-            className="mt-8 w-full rounded-xl bg-[#1DA1F2] px-4 py-3 text-xl font-bold text-black transition hover:bg-[#39b8ff]"
-            onClick={() => router.push("/signin")}
-          >
+            className="mt-8 w-full rounded-xl bg-[#1DA1F2] px-4 py-3 text-xl font-bold text-black transition hover:bg-[#39b8ff]">
             Далі
           </button>
         </div>

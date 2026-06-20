@@ -1,4 +1,3 @@
-"use client"
 export function validateEmail(email: string) {
   if (!email.trim()) {
     return "Введіть електронну пошту";

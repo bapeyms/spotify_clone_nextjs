@@ -36,19 +36,14 @@ export default function SingUP1() {
     pb-6
     md:items-center
     md:py-10
-    
-    bg-[url('/general/back.png')]
-    bg-cover
-    bg-center
-    bg-no-repeat
-    bg-fixed
   ">
       <div
         className="
-          relative
-          box-border
           flex
           w-[620px]
+          max-w-[620px]
+          relative
+          box-border
           flex-col
           items-center
           rounded-xl
@@ -61,7 +56,7 @@ export default function SingUP1() {
           max-[768px]:rounded-none
           max-[768px]:border-none
           max-[768px]:bg-transparent
-          max-[768px]:px-4
+          max-[768px]:px-2
         "
       >
         <button
