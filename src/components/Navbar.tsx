@@ -6,7 +6,7 @@ import Image from "next/image"
 export default function Navbar() {
     return(
         <nav className="w-full h-16 flex flex-row justify-between items-center bg-[#061420] text-[#A6DAFF] px-4 lg:px-8 border-b border-[#93E8FF]/30 shrink-0 mb-2">
-            <Link href="/">
+            <Link href="/homepage">
             <Image src="/dashboard/pagehome/logo.png" alt="LumiTune"
             width={75} height={75}
             sizes="(max-width: 768px) 48px, (max-width: 1024px) 64px, 80px"
@@ -32,8 +32,11 @@ export default function Navbar() {
             </div>
             
             <div className="flex flex-row gap-2 items-center">
-                <img src="/dashboard/pagehome/bell.png"
-                className="hidden lg:flex w-10 h-10 object-contain cursor-pointer"/>
+                <button type="button"
+                onClick={() => alert("Сповіщення ввімкнено")}>
+                    <img src="/dashboard/pagehome/bell.png" alt="upload"
+                    className="hidden lg:flex w-10 h-10 object-contain cursor-pointer"/>
+                </button>
                 <Link href="/account">
                 <img src="/dashboard/pagehome/account_photo.png" alt="account photo"
                 className="w-10 h-10 object-contain cursor-pointer"/>
