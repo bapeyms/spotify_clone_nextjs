@@ -96,11 +96,13 @@ export default function HomePage() {
                     ))}
                 </Swiper>
 
-                <button className="concert-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#061420]/60 border border-[#93E8FF]/30 text-[#AAE4FF] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:bg-[#001C34] hover:text-[#2BD9F2]">
+                <button className="concert-prev absolute left-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#061420]/60 
+                border border-[#93E8FF]/30 text-[#AAE4FF] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:bg-[#001C34] hover:text-[#2BD9F2]">
                     &#10094;
                 </button>
 
-                <button className="concert-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#061420]/60 border border-[#93E8FF]/30 text-[#AAE4FF] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:bg-[#001C34] hover:text-[#2BD9F2]">
+                <button className="concert-next absolute right-0 top-1/2 -translate-y-1/2 z-10 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-[#061420]/60 
+                border border-[#93E8FF]/30 text-[#AAE4FF] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer hover:bg-[#001C34] hover:text-[#2BD9F2]">
                     &#10095;
                 </button>
             </div>
