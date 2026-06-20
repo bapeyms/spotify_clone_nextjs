@@ -74,40 +74,41 @@ export default function SignUP2() {
   ">
       <div
         className="
-          flex
-          w-[620px]
-          max-w-[620px]
-          relative
-          box-border
-          flex-col
-          items-center
-          rounded-xl
-          border
-          border-[#496999]
-          bg-[#070D1A]
-          px-12
-          py-8
-          max-[768px]:w-full
-          max-[768px]:rounded-none
-          max-[768px]:border-none
-          max-[768px]:bg-transparent
-          max-[768px]:px-2
-        ">
+    relative
+    box-border
+    flex
+    w-[500px]
+    max-w-[500px]
+    flex-col
+    items-center
+    rounded-xl
+    border
+    border-[#496999]
+    bg-[#070D1A]
+    px-8
+    py-4
+    max-[768px]:w-full
+    max-[768px]:max-w-none
+    max-[768px]:px-2
+    max-[768px]:rounded-none
+    max-[768px]:border-none
+    max-[768px]:bg-transparent
+  ">
         <button
           type="button"
           onClick={() => router.push("/signup1step")}
-          className="absolute left-4 top-4 text-[#93B7FF] underline"
+          className="absolute left-7 top-5 text-[#93B7FF] underline"
         >
           Назад
         </button>
 
         <img
-          className="mt-8 h-30 w-40 max-[768px]:mt-12 max-[768px]:h-30 max-[768px]:w-40"
+          className="mt-8 h-25 w-30 max-[768px]:mt-12 max-[768px]:h-30 max-[768px]:w-40"
           src="/general/logo.png"
           alt="logo"
         />
 
-        <h1 className="mt-2 text-center text-3xl font-bold text-white max-[768px]:text-2xl">
+        <h1 className="mt-2 text-center text-2xl font-bold text-white max-[768px]:text-2xl">
           Пориньте вперше у LumiTune
         </h1>
 
@@ -115,7 +116,7 @@ export default function SignUP2() {
           Крок {currentStep} із {totalSteps}
         </p>
 
-        <div className="mt-2 w-full max-w-[520px] max-[768px]:max-w-none">
+        <div className="mt-2 w-full max-w-[400px] max-[768px]:max-w-none">
           <div className="h-1 overflow-hidden rounded-full bg-[#2A3C55]">
             <div
               className="
@@ -134,12 +135,12 @@ export default function SignUP2() {
           </div>
         </div>
 
-        <div className="mt-7 w-full max-w-[520px] max-[768px]:max-w-none">
+        <div className="mt-3 w-full max-w-[520px] max-[768px]:max-w-none">
           <label className="block text-xl text-white max-[768px]:text-base">
             Ім&apos;я
           </label>
 
-          <p className="text-base text-[#8A8A8A]">
+          <p className="text-sm text-[#8A8A8A]">
             Це ім&apos;я відображатиметься в профілі
           </p>
 
@@ -148,7 +149,7 @@ export default function SignUP2() {
             placeholder="Ім&apos;я"
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="mt-3 w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:py-3 max-[768px]:text-base"
+            className="mt-2 w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-2 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:py-3 max-[768px]:text-base"
           />
 
           {errors.name && (
@@ -156,32 +157,31 @@ export default function SignUP2() {
           )}
         </div>
 
-        <div className="mt-6 w-full max-w-[520px] max-[768px]:max-w-none">
+        <div className="mt-3 w-full max-w-[520px] max-[768px]:max-w-none">
           <label className="block text-xl text-white max-[768px]:text-base">
             Дата народження
           </label>
 
-          <p className="text-base text-[#8A8A8A]">
+          <p className="text-sm text-[#8A8A8A] flex flex-col">
             Для чого нам потрібна ваша дата народження?
+            <a className="text-[#8A8A8A] underline text-xs">
+              Докладніше
+            </a>
           </p>
 
-          <button type="button" className="mt-1 text-[#8A8A8A] underline">
-            Докладніше
-          </button>
-
-          <div className="mt-3 flex gap-5 max-[768px]:gap-3">
+          <div className="mt-3 flex gap-5 max-[768px]:gap-3 text-sm">
             <input
               type="text"
               placeholder="дд"
               value={day}
               onChange={(e) => setDay(e.target.value)}
-              className="w-20 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px] max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
+              className="w-15 h-10 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-2.5 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px] max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
             />
 
             <select
               value={month}
               onChange={(e) => setMonth(e.target.value)}
-              className="flex-1 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
+              className="flex-1 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-2 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
             >
               <option value="" disabled>
                 Місяць
@@ -205,7 +205,7 @@ export default function SignUP2() {
               placeholder="рррр"
               value={year}
               onChange={(e) => setYear(e.target.value)}
-              className="w-24 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px] max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
+              className="w-20 h-10 rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-4 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px] max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
             />
           </div>
 
@@ -214,29 +214,30 @@ export default function SignUP2() {
           )}
         </div>
 
-        <div className="mt-6 w-full max-w-[520px] max-[768px]:max-w-none">
+        <div className="mt-2 w-full max-w-[520px] max-[768px]:max-w-none">
           <label className="block text-xl text-white max-[768px]:text-base">
             Регіон проживання
           </label>
 
-          <p className="mt-1 text-base text-[#8A8A8A]">
+          <p className="text-sm text-[#8A8A8A] flex flex-col">
             Для чого нам потрібне ваше місце проживання?
+            <a className="text-[#8A8A8A] underline text-xs">
+              Докладніше
+            </a>
           </p>
 
-          <button type="button" className="mt-1 text-[#8A8A8A] underline">
-            Докладніше
-          </button>
 
-          <div className="mt-6 flex gap-6 max-[768px]:gap-3">
+
+          <div className="mt-2 flex gap-6 max-[768px]:gap-3">
             <div className="flex-1">
-              <label className="mb-2 block text-xl text-white max-[768px]:text-base">
+              <label className="mb-2 block text-l text-white max-[768px]:text-base">
                 Країна
               </label>
 
               <select
                 value={country}
                 onChange={(e) => setCountry(e.target.value)}
-                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
+                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-2.5 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
               >
                 <option value="" disabled>
                   Країна
@@ -252,14 +253,14 @@ export default function SignUP2() {
             </div>
 
             <div className="flex-1">
-              <label className="mb-2 block text-xl text-white max-[768px]:text-base">
+              <label className="mb-2 block text-l text-white max-[768px]:text-base">
                 Місто
               </label>
 
               <select
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
-                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-3 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
+                className="w-full rounded-xl border border-[#496999] bg-[#001B2E] px-4 py-2.5 text-white outline-none max-[768px]:px-3 max-[768px]:py-3 max-[768px]:text-base"
               >
                 <option value="" disabled>
                   Місто
@@ -275,12 +276,12 @@ export default function SignUP2() {
             </div>
           </div>
 
-          <div className="mt-8">
-            <p className="mb-4 text-xl text-white max-[768px]:text-base">
+          <div className="mt-3">
+            <p className="mb-2 text-xl text-white max-[768px]:text-base">
               Хто ви?
             </p>
 
-            <label className="mb-3 flex items-center gap-3 text-white">
+            <label className="mb-1 flex items-center gap-3 text-white">
               <input
                 type="radio"
                 name="role"
@@ -309,8 +310,8 @@ export default function SignUP2() {
 
           <button
             type="submit"
-            className="mt-8 w-full rounded-xl bg-[#1DA1F2] px-4 py-3 text-xl font-bold text-black transition hover:bg-[#39b8ff]">
-            Далі
+            className="mt-3 mb-3 w-full rounded-xl bg-[#1DA1F2] px-4 py-2 text-xl font-bold text-black transition hover:bg-[#39b8ff]">
+            Зареєструватися
           </button>
         </div>
       </div>
