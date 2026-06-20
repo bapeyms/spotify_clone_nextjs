@@ -5,7 +5,7 @@ import Image from "next/image"
 
 export default function Navbar() {
     return(
-        <nav className="w-full h-16 flex flex-row justify-between items-center bg-[#061420] text-[#A6DAFF] px-4 lg:px-8 border-b border-[#93E8FF]/30 shrink-0">
+        <nav className="w-full h-16 flex flex-row justify-between items-center bg-[#061420] text-[#A6DAFF] px-4 lg:px-8 border-b border-[#93E8FF]/30 shrink-0 mb-2">
             <Link href="/">
             <Image src="/dashboard/pagehome/logo.png" alt="LumiTune"
             width={75} height={75}
