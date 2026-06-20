@@ -30,8 +30,23 @@ export default function SingIN() {
   return (
     <form
       onSubmit={handleSubmit}
-      className="min-h-screen flex items-start justify-center px-4 pt-6 pb-6 md:items-center md:py-10"
-    >
+      className="
+    min-h-screen
+    flex
+    items-start
+    justify-center
+    px-4
+    pt-6
+    pb-6
+    md:items-center
+    md:py-10
+    
+    bg-[url('/general/back.png')]
+    bg-cover
+    bg-center
+    bg-no-repeat
+    bg-fixed
+  ">
       <div
         className="
     box-border
@@ -50,10 +65,9 @@ export default function SingIN() {
     max-[768px]:border-none
     max-[768px]:bg-transparent
     max-[768px]:px-2
-  "
-      >
+  ">
         <img
-          className="mt-8 h-40 w-40 max-[768px]:mt-12 max-[768px]:h-36 max-[768px]:w-36"
+          className="mt-8 h-30 w-40 max-[768px]:mt-12 max-[768px]:h-30 max-[768px]:w-40"
           src="/general/logo.png"
           alt="logo"
         />
