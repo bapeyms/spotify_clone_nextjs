@@ -62,13 +62,13 @@ export default function SingUP() {
           max-[768px]:px-2
         "
       >
-        <button
+        {/* <button
           type="button"
           onClick={() => router.push("/signin")}
           className="absolute left-4 top-4 text-[#93B7FF] underline"
         >
           Назад
-        </button>
+        </button> */}
 
         <img
           className="mt-8 h-30 w-40 max-[768px]:mt-12 max-[768px]:h-30 max-[768px]:w-40"

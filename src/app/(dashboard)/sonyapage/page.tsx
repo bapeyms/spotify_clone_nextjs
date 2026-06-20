@@ -3,8 +3,8 @@
 import Link from "next/link"
 import Image from "next/image"
 
-export default function HomePage() {
-    return(
+export default function MediaPage() {
+    return (
         <div className="text-white">
             TEST</div>
     )

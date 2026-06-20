@@ -3,8 +3,10 @@
 import Link from "next/link";
 import { useState } from "react";
 import { validateEmail, validatePassword } from "./validation";
+import { useRouter } from "next/navigation";
 
 export default function SingIN() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -129,6 +131,7 @@ export default function SingIN() {
             <button
               className="mt-5 w-full rounded-xl bg-[#1DA1F2] px-4 py-2.5 text-xl font-bold text-black transition hover:bg-[#39b8ff] max-[768px]:py-3 max-[768px]:text-lg"
               type="submit"
+              onClick={() => router.push("/homepage")}
             >
               Увійти
             </button>
