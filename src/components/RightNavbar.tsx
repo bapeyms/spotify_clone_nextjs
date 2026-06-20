@@ -83,10 +83,10 @@ export default function RightNavbar() {
                       <div className="flex flex-row justify-between items-center">
                         <span className="text-white/60 text-xs">{r.listeners}</span>
                         <button onClick={() => setIsSubscribed(!isSubscribed)}
-                        className={`text-[10px] font-semibold px-3 py-1 rounded-full border transition-all duration-200 cursor-pointer 
+                        className={`text-[10px] font-semibold px-3 py-[2px] rounded-lg border transition-all duration-200 cursor-pointer 
                           ${isSubscribed
                             ? "bg-transparent border-[#93E8FF]/40 text-[#93E8FF] hover:bg-red-500/10 hover:border-red-500/30 hover:text-red-400"
-                            : "bg-white text-black border-white hover:bg-white/90"}`}>
+                            : "bg-[#3A454C] text-white border-[#87B0CE] hover:bg-[#3A454C]/50"}`}>
                             {isSubscribed ? "Відписатися" : "Підписатися"}
                           </button>
                       </div>
@@ -99,12 +99,13 @@ export default function RightNavbar() {
 
             ) : (
             <div className="flex flex-col items-center justify-center h-full text-center p-6 gap-4">
-              <div className="w-14 h-14 rounded-full bg-[#001C34]/60 border border-[#93E8FF]/20 flex items-center justify-center shadow-[0_0_15px_rgba(147,232,255,0.05)]">
-              <img src="/dashboard/pagehome/logo.png" alt="LumiTune" className="w-7 h-auto object-contain opacity-30"/>
+              <div className="w-20 h-20 rounded-full bg-[#001C34]/60 border border-[#93E8FF]/20 flex items-center justify-center">
+              <img src="/dashboard/pagehome/logo.png" alt="LumiTune"
+               className="w-15 h-15 object-contain opacity-60 pt-3"/>
               </div>
 
               <div className="flex flex-col gap-1">
-                <h4 className="text-sm font-medium text-white">Контекст порожній</h4>
+                <h4 className="text-md font-medium text-white">Міжмережева тиша...</h4>
                 <p className="text-xs text-[#7E9CA1] max-w-[200px] leading-normal">
                   Оберіть радіо або трек на головній сторінці, щоб побачити деталі
                 </p>
