@@ -93,8 +93,11 @@ export default function LeftNavbar() {
           <div className="pt-2 flex flex-col gap-4">
             <div className="flex flex-row justify-between items-center">
               <p className="text-sm text-[#BFEDFD] font-semibold">Нещодавно прослухані</p>
-              <img src="/dashboard/pagehome/recent.png" alt="Recent"
-              className="w-6 h-6 object-contain"></img>
+              <button type="button"
+              onClick={() => alert("Оновлення даних...")}>
+                <img src="/dashboard/pagehome/recent.png" alt="Recent"
+                className="w-6 h-6 object-contain cursor-pointer"/>
+              </button>
             </div>
 
             <div className="flex flex-col items-center py-8">

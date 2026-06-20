@@ -15,7 +15,7 @@ export default function RightNavbar() {
           
           {!isCleared ? (
             
-            <div className="flex flex-col h-full gap-4">
+            <div className="flex flex-col h-full gap-4 mb-16">
               {RADIO.slice(0, 1).map((r) => (
                 <div key="header" 
                 className="flex flex-row justify-between items-center text-white pb-2">
