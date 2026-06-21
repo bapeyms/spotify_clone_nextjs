@@ -10,6 +10,7 @@ import { MOOD } from "@/data/homepage/mood"
 import { MUSIC_TODAY } from "@/data/homepage/your_music_today"
 import { NEW_RELEASES } from "@/data/homepage/new_releases"
 import { FAVOURITE_ARTISTS } from "@/data/homepage/favourite_artists"
+import { BOOKS } from "@/data/homepage/audiobooks"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper/modules"
@@ -354,6 +355,41 @@ export default function HomePage() {
                                     
                                 <p className="text-[#7BA6DF]/60 font-normal text-[10px] md:text-xs truncate w-full">
                                     {artist.listeners}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-5 w-full max-w-4xl mx-auto md:mt-6 mb-6">
+                <h3 className="text-[#BEF4FF] text-base md:text-xl font-semibold">
+                    Нові релізи <span className="text-[#40A2FF]">Аудіокниг</span>
+                </h3>
+                
+                <div className="flex flex-col gap-6 w-full">
+                    {BOOKS.map((item) => (
+                        <div key={item.id} 
+                        className="flex flex-row gap-4 md:gap-6 items-start w-full group cursor-pointer">
+                            
+                            <div className="w-[110px] h-[110px] md:w-[140px] md:h-[140px] shrink-0 rounded-lg overflow-hidden relative bg-[#112240]/40">
+                            <img src={item.img} alt={item.book} 
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
+                            </div>
+                            
+                            <div className="flex flex-col flex-1 min-w-0 h-full justify-between py-1">
+                                <div>
+                                    <h4 className="text-white text-sm md:text-base font-medium group-hover:text-[#40A2FF] transition-colors duration-200">
+                                        {item.book} <span className="text-[#7BA6DF]/60 font-light mx-1">|</span> <span className="text-white/80 font-normal">{item.author}</span></h4>
+                                        <p className="text-[#7BA6DF] font-medium text-[11px] md:text-xs mt-0.5 mb-2">
+                                            {item.genres}</p>
+                                        <p className="text-white/60 font-light text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-4 max-w-2xl">
+                                            {item.desc}</p>
+                                </div>
+                                
+                                <div className="flex flex-col gap-0.5 mt-3 text-white/40 text-[10px] md:text-xs font-light">
+                                <p>{item.date}</p>
+                                <p>{item.time}</p>
+                                </div>
                             </div>
                         </div>
                     ))}
