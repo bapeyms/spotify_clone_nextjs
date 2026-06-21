@@ -14,7 +14,7 @@ export default function DashboardLayout({
       
       <div className="flex flex-row flex-1 w-full overflow-hidden">
         <LeftNavbar/>
-        <main className="flex-grow flex flex-col justify-start p-8 border border-[#93E8FF]/30 rounded-lg mx-1 mb-30">
+        <main className="flex-grow flex flex-col min-w-0 justify-start py-4 px-4 md:px-10 border border-[#93E8FF]/30 rounded-xl mx-1 mb-30">
         {children}
         </main>
         <RightNavbar/>

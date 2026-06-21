@@ -11,7 +11,7 @@ export default function RightNavbar() {
   const [isSubscribed, setIsSubscribed] = useState(false);
 
     return (
-        <aside className="w-80 h-full bg-[#0C0C0C]/40 rounded-r-lg border border-[#93E8FF]/30 p-5 flex flex-col gap-4 shrink-0 hidden xl:flex mr-1">
+        <aside className="w-80 h-full bg-[#0C0C0C]/40 rounded-r-xl border border-[#93E8FF]/30 p-5 flex flex-col gap-4 shrink-0 hidden xl:flex mr-1">
           
           {!isCleared ? (
             

@@ -24,3 +24,41 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.concert-swiper .swiper-pagination {
+  position: absolute;
+  top: -24px !important;
+  bottom: auto !important;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+
+.concert-swiper .swiper-pagination-bullet {
+  background: #AAE4FF !important;
+  opacity: 0.3;
+  width: 6px;
+  height: 6px;
+  transition: all 0.3s ease;
+}
+
+.concert-swiper .swiper-pagination-bullet-active {
+  opacity: 1;
+  background: #2BD9F2 !important;
+  transform: scale(1.2);
+}
+
+.concert-swiper .swiper-button-next,
+.concert-swiper .swiper-button-prev {
+  display: none !important;
+}
+
+@layer utilities {
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
