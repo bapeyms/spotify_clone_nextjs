@@ -3,14 +3,9 @@
 import Image from "next/image";
 import { SONGS } from "@/data/songs";
 
-function formatDuration(seconds: number) {
-    const min = Math.floor(seconds / 60);
-    const sec = String(seconds % 60).padStart(2, "0");
-    return `${min}:${sec}`;
-}
 export default function Songs() {
     return (
-        <main className="w-full">
+        <main className="w-full pb-20">
             <section className="w-full ">
                 <div className="h-[230px] px-10 pt-18  bg-[url('/playlist/hearts.png')] bg-repeat-x bg-top">
                     <p className="mb-4 text-sm text-white/75">Плейлист</p>
@@ -36,7 +31,7 @@ export default function Songs() {
                     <div className="flex items-center gap-4">
                         <button>
                             <Image
-                                src="/playlist/stop.png"
+                                src="/playlist/play.png"
                                 alt="play"
                                 width={40}
                                 height={40}
@@ -83,7 +78,46 @@ export default function Songs() {
                         />
                     </div>
                 </div>
+
             </section>
+            <div className="grid grid-cols-[3.8fr_2fr_2fr_0.4fr] items-center px-10 py-4 text-white/80">
+                <div></div>
+                <div>Альбом</div>
+                <div>Дата додавання</div>
+                <div>Час</div>
+            </div>
+            <div className="space-y-2 px-10">
+                {SONGS.map((song, index) => (
+                    <div
+                        key={song.id}
+                        className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white"
+                    >
+                        <div className="text-center text-sky-300">
+                            {index + 1}
+                        </div>
+
+                        <div className="flex items-center gap-3 min-w-0">
+                            <Image
+                                src={song.cover}
+                                alt={song.title}
+                                width={48}
+                                height={48}
+                                className="rounded"
+                            />
+                            <div className="min-w-0">
+                                <div className="truncate">{song.title}</div>
+                                <div className="truncate text-sm text-white/50">
+                                    {song.artist}
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className="text-center">{song.album}</div>
+                        <div className="text-center">{song.addedAt}</div>
+                        <div className="text-right mr-5">{song.duration}</div>
+                    </div>
+                ))}
+            </div>
         </main>
 
     )
