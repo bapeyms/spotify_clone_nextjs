@@ -9,6 +9,7 @@ import { CONCERT } from "@/data/homepage/concert_slider"
 import { MOOD } from "@/data/homepage/mood"
 import { MUSIC_TODAY } from "@/data/homepage/your_music_today"
 import { NEW_RELEASES } from "@/data/homepage/new_releases"
+import { FAVOURITE_ARTISTS } from "@/data/homepage/favourite_artists"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper/modules"
@@ -95,6 +96,35 @@ export default function HomePage() {
         if (!releasesScrollRef.current) return;
         const scrollAmount = 300;
         releasesScrollRef.current.scrollBy({
+            left: direction === "left" ? -scrollAmount : scrollAmount,
+            behavior: "smooth"
+        });
+    };
+
+    // favourite artists
+    const artistsScrollRef = useRef<HTMLDivElement>(null);
+    const isArtistsDown = useRef(false);
+    const artistsStartX = useRef(0);
+    const artistsScrollLeft = useRef(0);
+    const handleArtistsMouseDown = (e: React.MouseEvent) => {
+        if (!artistsScrollRef.current) return;
+        isArtistsDown.current = true;
+        artistsStartX.current = e.pageX - artistsScrollRef.current.offsetLeft;
+        artistsScrollLeft.current = artistsScrollRef.current.scrollLeft;
+    };
+    const handleArtistsMouseLeave = () => { isArtistsDown.current = false; };
+    const handleArtistsMouseUp = () => { isArtistsDown.current = false; };
+    const handleArtistsMouseMove = (e: React.MouseEvent) => {
+        if (!isArtistsDown.current || !artistsScrollRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - artistsScrollRef.current.offsetLeft;
+        const walk = (x - artistsStartX.current) * 1.5;
+        artistsScrollRef.current.scrollLeft = artistsScrollLeft.current - walk;
+    };
+    const scrollArtists = (direction: "left" | "right") => {
+        if (!artistsScrollRef.current) return;
+        const scrollAmount = 300;
+        artistsScrollRef.current.scrollBy({
             left: direction === "left" ? -scrollAmount : scrollAmount,
             behavior: "smooth"
         });
@@ -230,7 +260,7 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-4 w-full min-w-0">
+            <div className="flex flex-col gap-4 w-full min-w-0 md:mb-8">
                 <div className="flex flex-row justify-between items-center w-full">
                     <h3 className="text-[#BEF4FF] text-base md:text-xl font-semibold">
                         Нові <span className="text-[#40A2FF]">музичні</span> релізи
@@ -277,6 +307,54 @@ export default function HomePage() {
                                     {nr.tracks}
                                     </p>
                                 </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-4 w-full min-w-0 md:mb-8">
+                <div className="flex flex-row justify-between items-center w-full">
+                    <h3 className="text-[#BEF4FF] text-base md:text-xl font-semibold">
+                        Твої улюблені <span className="text-[#40A2FF]">виконавці</span>
+                    </h3>
+                    
+                    <div className="flex flex-row items-center gap-3 text-[#5D6E96] px-1">
+                        <button onClick={() => scrollArtists("left")}
+                        className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
+                            &#10094;
+                        </button>
+                        
+                        <button onClick={() => scrollArtists("right")}
+                        className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
+                            &#10095;
+                        </button>
+                    </div>
+                </div>
+                
+                <div 
+                ref={artistsScrollRef}
+                onMouseDown={handleArtistsMouseDown}
+                onMouseLeave={handleArtistsMouseLeave}
+                onMouseUp={handleArtistsMouseUp}
+                onMouseMove={handleArtistsMouseMove}
+                className="flex flex-row justify-start items-start gap-6 md:gap-8 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
+                    
+                    {FAVOURITE_ARTISTS.map((artist) => (
+                        <div key={artist.id} 
+                        className="flex flex-col items-center text-center gap-2 w-[120px] md:w-[150px] shrink-0 cursor-pointer group">
+                            
+                            <div className="w-full aspect-square rounded-full overflow-hidden border border-[#AAE4FF]/10 bg-[#112240]/30">
+                            <img src={artist.img} alt={artist.artist} 
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
+                            </div>
+                            
+                            <div className="flex flex-col gap-0.5 min-w-0 w-full px-1">
+                                <p className="text-white font-medium text-xs md:text-sm truncate w-full group-hover:text-[#BEF4FF] transition-colors">
+                                    {artist.artist}</p>
+                                    
+                                <p className="text-[#7BA6DF]/60 font-normal text-[10px] md:text-xs truncate w-full">
+                                    {artist.listeners}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
