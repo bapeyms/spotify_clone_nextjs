@@ -11,6 +11,7 @@ import { MUSIC_TODAY } from "@/data/homepage/your_music_today"
 import { NEW_RELEASES } from "@/data/homepage/new_releases"
 import { FAVOURITE_ARTISTS } from "@/data/homepage/favourite_artists"
 import { BOOKS } from "@/data/homepage/audiobooks"
+import { NEW_PODCASTS } from "@/data/homepage/podcasts"
 
 import { Swiper, SwiperSlide } from "swiper/react"
 import { Navigation, Pagination } from "swiper/modules"
@@ -355,6 +356,46 @@ export default function HomePage() {
                                     
                                 <p className="text-[#7BA6DF]/60 font-normal text-[10px] md:text-xs truncate w-full">
                                     {artist.listeners}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+
+            <div className="flex flex-col gap-5 w-full min-w-0 mt-6 md:mb-6">
+                <h3 className="text-[#BEF4FF] text-base md:text-xl font-semibold">
+                    Нові релізи <span className="text-[#40A2FF]">подкастів</span>
+                </h3>
+                
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 w-full">
+                    {NEW_PODCASTS.map((pod) => (
+                        <div key={pod.id}
+                        className="flex flex-row md:flex-col justify-between bg-[#112240]/40 border border-[#40A2FF]/10 hover:bg-[#162c52]/60 hover:border-[#40A2FF]/20 transition-all duration-300 rounded-2xl p-4 md:p-5 w-full cursor-pointer group gap-4 md:gap-0">
+                            
+                            <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-full md:h-auto md:aspect-square relative shrink-0 rounded-xl overflow-hidden bg-[#0c1a30] md:order-2 md:mt-4">
+                                <Image src={pod.img} alt={pod.name} 
+                                fill sizes="(max-width: 768px) 120px, 33vw"
+                                className="object-cover transition-transform duration-300 group-hover:scale-102 pointer-events-none"/>
+                            </div>
+                            
+                            <div className="flex flex-col flex-1 justify-between min-w-0 md:contents">
+                                <div className="flex flex-col gap-0.5 min-w-0 md:order-1">
+                                    <h4 className="text-white font-semibold text-sm md:text-base truncate w-full group-hover:text-[#BEF4FF] transition-colors">
+                                        {pod.name}
+                                    </h4>
+                                    <p className="text-white/40 text-[10px] md:text-xs font-normal truncate">
+                                    {pod.genres} <span className="mx-0.5">•</span> Consectetur adipiscing elit quisque faucib...
+                                    </p>
+                                </div>
+                                
+                                <div className="flex flex-col gap-2 md:gap-4 mt-2 md:mt-4 min-w-0 md:order-3">
+                                    <p className="text-white/60 font-normal text-[11px] md:text-xs leading-relaxed line-clamp-2 md:line-clamp-4">
+                                    {pod.desc}</p>
+                                    
+                                    <div className="text-white/40 text-[10px] md:text-xs font-light flex items-center gap-1.5">
+                                    <span>{pod.date}</span><span>•</span><span>{pod.time}</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     ))}
