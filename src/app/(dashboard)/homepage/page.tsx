@@ -141,9 +141,17 @@ export default function HomePage() {
     };  
 
     return (
-        <div className="flex flex-col text-white gap-8 w-full max-w-full">
+        <div className="relative flex flex-col text-white gap-8 w-full max-w-full min-h-screen">
 
-            <div className="flex flex-row gap-2">
+            <div className="absolute inset-0 z-0 pointer-events-none select-none">
+                <Image src="/dashboard/pagehome/bg.png"
+                alt="Background Gradient Source" 
+                fill priority
+                className="object-cover blur-3xl opacity-50"
+                sizes="100vw"/>
+            </div>
+
+            <div className="flex flex-row gap-2 z-10">
                 <Link href="/homepage" className={getLinkClass("/homepage")}>
                     <span>Всі</span>
                 </Link>
