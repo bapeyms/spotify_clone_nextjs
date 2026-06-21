@@ -54,13 +54,11 @@ body {
 }
 
 @layer utilities {
-  /* Ховаємо скролбар для Chrome, Safari та Opera */
   .scrollbar-none::-webkit-scrollbar {
     display: none;
   }
-  /* Ховаємо скролбар для IE, Edge та Firefox */
   .scrollbar-none {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 }
