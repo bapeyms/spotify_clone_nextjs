@@ -1,9 +1,14 @@
 "use client";
 
 import Image from "next/image";
-import { SONGS } from "@/data/songs";
+import { SONGS } from "@/data/sonyapage/songs";
+
+import { useAudio } from "@/context/AudioContext";
 
 export default function Songs() {
+
+    const { playTrack } = useAudio();
+
     return (
         <main className="w-full pb-20">
             <section className="w-full ">
@@ -90,6 +95,12 @@ export default function Songs() {
                 {SONGS.map((song, index) => (
                     <div
                         key={song.id}
+                        onClick={() => playTrack({
+                            title: song.title,
+                            artist: song.artist,
+                            cover: song.cover
+                        })}
+                        
                         className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white"
                     >
                         <div className="text-center text-sky-300">
