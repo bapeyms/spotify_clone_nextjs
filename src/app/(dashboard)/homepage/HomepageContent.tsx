@@ -392,11 +392,10 @@ export default function HomePage() {
                     {NEW_PODCASTS.map((pod) => (
                         <div key={pod.id}
                         className="flex flex-row md:flex-col justify-between bg-[#112240]/40 hover:bg-[#162c52]/60 hover:border-[#40A2FF]/20 transition-all duration-300 rounded-2xl p-4 md:p-5 w-full cursor-pointer group gap-4 md:gap-0">
-                            
-                            <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-full md:h-auto md:aspect-square relative shrink-0 rounded-xl overflow-hidden bg-[#0c1a30] md:order-2 md:mt-4">
+                            <div className="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[180px] md:h-[180px] relative shrink-0 rounded-xl overflow-hidden bg-[#0c1a30] md:order-2 md:mt-4 md:mx-auto">
                                 <Image src={pod.img} alt={pod.name} 
-                                fill sizes="(max-width: 768px) 120px, 33vw"
-                                className="object-cover transition-transform duration-300 group-hover:scale-102 pointer-events-none"/>
+                                fill sizes="(max-width: 768px) 110px, 180px" 
+                                className="object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
                             </div>
                             
                             <div className="flex flex-col flex-1 justify-between min-w-0 md:contents">
@@ -423,7 +422,7 @@ export default function HomePage() {
                 </div>
             </div>
 
-            <div className="flex flex-col gap-5 w-full max-w-4xl mx-auto md:mt-6 mb-6">
+            <div className="flex flex-col gap-5 w-full max-w-4xl mx-auto md:mt-6 pb-12">
                 <h3 className="text-[#BEF4FF] text-base md:text-xl font-semibold">
                     Нові релізи <span className="text-[#40A2FF]">Аудіокниг</span>
                 </h3>
