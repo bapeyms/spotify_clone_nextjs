@@ -60,11 +60,12 @@ export default function LeftNavbar() {
           </div>
           
           <div className="flex flex-col gap-4 border-b pb-8 border-[#93E8FF]/30">
-            <div className="flex flex-row justify-between items-center">
-              <p className="text-sm text-[#BFEDFD] font-semibold">Ваші плейлисти</p>
-              <img src="/dashboard/pagehome/yourplaylists.png" alt="Your Playlists"
-              className="w-6 h-6 object-contain"></img>
-            </div>
+          <Link href="/yourplaylist"
+          className="flex flex-row justify-between items-center">
+          <p className="text-sm text-[#BFEDFD] hover:text-white font-semibold">Ваші плейлисти</p>
+          <img src="/dashboard/pagehome/yourplaylists.png" alt="Your Playlists"
+          className="w-6 h-6 object-contain"></img>
+          </Link>
             
             <div className="flex flex-col gap-3 overflow-y-auto max-h-[350px] custom-scrollbar">
               {MENU_ARTISTS.map((artist) => (

@@ -10,6 +10,7 @@ import { NEW_RELEASES } from "@/data/homepage/new_releases"
 import { FAVOURITE_ARTISTS } from "@/data/homepage/favourite_artists"
 import { BEST_MIXES } from "@/data/mylibrary/best_mixes"
 import { NEW_PODCASTS } from "@/data/mylibrary/podcasts"
+import { BOOKS } from "@/data/mylibrary/audiobooks"
 
 export default function MyLibrary() {
 
@@ -347,10 +348,10 @@ export default function MyLibrary() {
                     {NEW_PODCASTS.map((pod) => (
                         <div key={pod.id}
                         className="flex flex-row md:flex-col justify-between bg-[#112240]/40 hover:bg-[#162c52]/60 hover:border-[#40A2FF]/20 transition-all duration-300 rounded-2xl p-4 md:p-5 w-full cursor-pointer group gap-4 md:gap-0">
-                            <div className="w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] md:w-full md:h-auto md:aspect-square relative shrink-0 rounded-xl overflow-hidden bg-[#0c1a30] md:order-2 md:mt-4">
+                            <div className="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[180px] md:h-[180px] relative shrink-0 rounded-xl overflow-hidden bg-[#0c1a30] md:order-2 md:mt-4 md:mx-auto">
                                 <Image src={pod.img} alt={pod.name} 
-                                fill sizes="(max-width: 768px) 120px, 33vw"
-                                className="object-cover transition-transform duration-300 group-hover:scale-102 pointer-events-none"/>
+                                fill sizes="(max-width: 768px) 110px, 180px" 
+                                className="object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
                             </div>
                             
                             <div className="flex flex-col flex-1 justify-between min-w-0 md:contents">
@@ -373,7 +374,40 @@ export default function MyLibrary() {
                         </div>
                     ))}
                 </div>
-            </div>    
+            </div>
+            
+            <div className="flex flex-col gap-5 w-full min-w-0 md:mb-8 pb-12">
+                <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
+                    <span className="text-[#40A2FF]">Аудіокниги,</span> які тобі сподобалися
+                </h3>
+                
+                <div className="flex flex-col gap-6 w-full">
+                    {BOOKS.map((item) => (
+                        <div key={item.id} 
+                        className="flex flex-row gap-4 md:gap-6 items-start w-full group cursor-pointer">
+                            
+                            <div className="w-[110px] h-[110px] md:w-[140px] md:h-[140px] shrink-0 rounded-lg overflow-hidden relative bg-[#112240]/40">
+                            <img src={item.img} alt={item.book} 
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
+                            </div>
+                            <div className="flex flex-col flex-1 min-w-0 h-full justify-between py-1">
+                                <div>
+                                    <h4 className="text-white text-sm md:text-base font-medium group-hover:text-[#40A2FF] transition-colors duration-200">
+                                        {item.book} <span className="text-[#7BA6DF]/60 font-light mx-1">|</span> <span className="text-white/80 font-normal">{item.author}</span></h4>
+                                        <p className="text-[#7BA6DF] font-medium text-[11px] md:text-xs mt-0.5 mb-2">
+                                            {item.genres}</p>
+                                        <p className="text-white/60 font-light text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-4 max-w-2xl">
+                                            {item.desc}</p>
+                                </div>
+                                <div className="flex flex-col gap-0.5 mt-3 text-white/40 text-[10px] md:text-xs font-light">
+                                <p>{item.date}</p>
+                                <p>{item.time}</p>
+                                </div>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>   
     </div>
     )
 }
