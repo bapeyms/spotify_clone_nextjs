@@ -152,7 +152,7 @@ export default function SignUP2() {
           <div className="mt-3 flex gap-3">
             <input
               type="text"
-              placeholder="рррр"
+              placeholder="дд"
               value={day}
               onChange={(e) => setDay(e.target.value)}
               className="h-10 w-[72px] rounded-xl border border-[#496999] bg-[#001B2E] px-3 text-white outline-none placeholder:text-[#6B7FA8] max-[768px]:w-[72px]"

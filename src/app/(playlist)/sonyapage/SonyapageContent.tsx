@@ -95,43 +95,41 @@ export default function Songs() {
                 </div>
 
             </section>
-            <div className="grid grid-cols-[3.8fr_2fr_2fr_0.4fr] items-center px-10 py-4 text-white/80">
-                <div></div>
-                <div>Альбом</div>
-                <div>Дата додавання</div>
-                <div>Час</div>
+            <div className="grid grid-cols-[56px_56px_minmax(0,1.6fr)_minmax(0,1fr)_92px] items-center px-10 py-4 text-white/80">
+                <div />
+                <div />
+                <div />
+                <div className="text-center">Дата додавання</div>
+                <div className="text-right">Час</div>
             </div>
-            <div className="space-y-2 px-10 ">
+
+            <div className="space-y-2 px-10">
                 {SONGS.map((song, index) => (
                     <div
                         key={song.id}
                         onClick={() => playTrack(song, SONGS, index)}
-
-                        className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white hover:bg-blue-950 cursor-pointer"
+                        className="grid grid-cols-[56px_56px_minmax(0,1.6fr)_minmax(0,1fr)_92px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white hover:bg-blue-950 cursor-pointer"
                     >
                         <div className="text-center text-sky-300">
                             {index + 1}
                         </div>
 
-                        <div className="flex items-center gap-3 min-w-0">
-                            <Image
-                                src={song.cover}
-                                alt={song.title}
-                                width={48}
-                                height={48}
-                                className="rounded"
-                            />
-                            <div className="min-w-0">
-                                <div className="truncate">{song.title}</div>
-                                <div className="truncate text-sm text-white/50">
-                                    {song.artist}
-                                </div>
-                            </div>
+                        <Image
+                            src={song.cover}
+                            alt={song.title}
+                            width={48}
+                            height={48}
+                            className="rounded"
+                        />
+
+                        <div className="min-w-0">
+                            <div className="truncate">{song.title}</div>
+                            <div className="truncate text-sm text-white/50">{song.artist}</div>
                         </div>
 
-                        <div className="text-center">{song.album}</div>
-                        <div className="text-center">{song.addedAt}</div>
-                        <div className="text-right mr-5">{song.duration}</div>
+                        <div className="truncate text-center">{song.album}</div>
+
+                        <div className="text-right">{song.duration}</div>
                     </div>
                 ))}
             </div>
