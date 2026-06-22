@@ -68,7 +68,7 @@ export default function SingUP1() {
         </button>
 
         <img
-          className="mt-8 h-25 w-30 max-[768px]:mt-12 max-[768px]:h-30 max-[768px]:w-40"
+          className="mt-4 h-20 w-30 max-[768px]:mt-12 max-[768px]:h-20 max-[768px]:w-30"
           src="/general/logo.png"
           alt="logo"
         />
