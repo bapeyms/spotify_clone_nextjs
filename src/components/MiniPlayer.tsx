@@ -35,10 +35,12 @@ export default function MiniPlayer() {
 
         <div className="flex flex-col items-center">
           <div className="flex items-center gap-6">
-            <Image src="/playlist/repeat.png" alt="Повтор" width={16} height={16} />
-            <Image src="/playlist/prev.png" alt="Назад" width={14} height={14} />
+            <Image src="/playlist/repeat.png" alt="Повтор" width={16} height={16} 
+            className="cursor-pointer"/>
+            <Image src="/playlist/prev.png" alt="Назад" width={14} height={14} 
+            className="cursor-pointer"/>
 
-            <button type="button" onClick={togglePlay} className="flex items-center justify-center">
+            <button type="button" onClick={togglePlay} className="flex items-center justify-center cursor-pointer">
               <Image
                 src={isPlaying ? "/playlist/pause.png" : "/playlist/play.png"}
                 alt={isPlaying ? "Pause" : "Play"}
@@ -47,8 +49,10 @@ export default function MiniPlayer() {
               />
             </button>
 
-            <Image src="/playlist/next.png" alt="Вперед" width={14} height={14} />
-            <Image src="/playlist/shuffle.png" alt="Перемішати" width={14} height={14} />
+            <Image src="/playlist/next.png" alt="Вперед" width={14} height={14} 
+            className="cursor-pointer"/>
+            <Image src="/playlist/shuffle.png" alt="Перемішати" width={14} height={14}
+            className="cursor-pointer"/>
           </div>
 
           <div className="mt-1 flex w-full max-w-[500px] items-center gap-2">
