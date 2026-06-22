@@ -263,7 +263,8 @@ export default function HomePage() {
                             onClick={() => playTrack({
                             title: mt.music,
                             artist: mt.artist,
-                            cover: mt.img
+                            cover: mt.img,
+                            duration: mt.duration
                         })}
                             className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
                             <img 
