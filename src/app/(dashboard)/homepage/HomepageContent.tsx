@@ -218,9 +218,12 @@ export default function HomePage() {
                     className="flex flex-row justify-start items-start gap-4 md:gap-5 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
 
                     {MOOD.map((m) => (
-                        <div key={m.id} className="flex flex-col items-center gap-1 font-semibold text-[#94D2FF] w-[130px] md:w-[110px] lg:w-[18%] cursor-pointer shrink-0">
-                            <img src={m.img} alt={m.mood} className="w-full h-auto aspect-square object-contain transition-transform duration-200 hover:scale-105 pointer-events-none"/>
-                            <p className="text-sm md:text-sm text-center truncate w-full mt-1">{m.mood}</p>
+                        <div key={m.id} 
+                        className="group flex flex-col items-center gap-1 font-semibold text-[#94D2FF] w-[130px] md:w-[110px] lg:w-[18%] cursor-pointer shrink-0">
+                            <img src={m.img} alt={m.mood} 
+                            className="w-full h-auto aspect-square object-contain transition-all duration-300 group-hover:drop-shadow-[0_0_12px_rgba(64,162,255,0.5)] pointer-events-none"/>
+                            <p className="text-sm text-center truncate w-full mt-1 transition-all duration-300 group-hover:text-white">
+                                {m.mood}</p>
                         </div>
                     ))}
                 </div>
