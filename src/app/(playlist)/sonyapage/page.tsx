@@ -98,9 +98,10 @@ export default function Songs() {
                         onClick={() => playTrack({
                             title: song.title,
                             artist: song.artist,
-                            cover: song.cover
+                            cover: song.cover,
+                            duration: song.duration
                         })}
-                        
+
                         className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white"
                     >
                         <div className="text-center text-sky-300">

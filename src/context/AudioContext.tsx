@@ -6,6 +6,7 @@ interface Track {
   title: string;
   artist: string;
   cover: string;
+  duration: string
 }
 
 interface AudioContextType {
