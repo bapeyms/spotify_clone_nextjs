@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: "Улюблені треки | LumiTune",
 };
 
-export default function Page() {
+export default function SonyaPage() {
   return <Songs/>;
 }

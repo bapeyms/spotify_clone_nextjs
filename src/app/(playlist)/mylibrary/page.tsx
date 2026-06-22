@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: "Моя Медіатека | LumiTune",
 };
 
-export default function Page() {
+export default function MyLibraryPage() {
   return <MyLibrary/>;
 }
