@@ -142,10 +142,10 @@ export default function MyLibrary() {
     return (
         <div className="relative flex flex-col text-white gap-8 w-full max-w-full min-h-screen px-4 md:px-12 mt-10">
             <div className="absolute inset-0 z-0 pointer-events-none select-none">
-                <Image src="/dashboard/pagehome/bg.png" alt="Background Gradient Source" 
-                fill priority
-                className="object-cover blur-3xl opacity-50"
-                sizes="100vw"/>
+                <Image src="/dashboard/pagehome/bg.png" alt="Background Gradient Source"
+                    fill priority
+                    className="object-cover blur-3xl opacity-50"
+                    sizes="100vw" />
             </div>
 
             <div className="mb-8">
@@ -157,14 +157,14 @@ export default function MyLibrary() {
                     <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
                         Улюблені треки
                     </h3>
-                    
+
                     <div className="flex flex-row items-center gap-3 text-[#5D6E96] px-1">
-                        <button 
+                        <button
                             onClick={() => scrollMusic("left")}
                             className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10094;
                         </button>
-                        <button 
+                        <button
                             onClick={() => scrollMusic("right")}
                             className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10095;
@@ -172,7 +172,7 @@ export default function MyLibrary() {
                     </div>
                 </div>
 
-                <div 
+                <div
                     ref={musicScrollRef}
                     onMouseDown={handleMusicMouseDown}
                     onMouseLeave={handleMusicMouseLeave}
@@ -182,14 +182,18 @@ export default function MyLibrary() {
 
                     {MUSIC_TODAY.map((mt) => (
                         <div key={mt.id}
-                        onClick={() => playTrack({
-                            title: mt.music,
-                            artist: mt.artist,
-                            cover: mt.img
-                        })}
+                            onClick={() =>
+                                playTrack({
+                                    id: mt.id,
+                                    title: mt.music,
+                                    artist: mt.artist,
+                                    cover: mt.img,
+                                    duration: mt.duration,
+                                })
+                            }
                             className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
-                            <img src={mt.img} alt={mt.music} 
-                                className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none"/>
+                            <img src={mt.img} alt={mt.music}
+                                className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none" />
                             <div className="flex flex-col gap-0.5 min-w-0">
                                 <p className="text-white font-medium text-xs md:text-sm truncate w-full">
                                     {mt.music}
@@ -208,14 +212,14 @@ export default function MyLibrary() {
                     <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
                         Плейлисти
                     </h3>
-                    
+
                     <div className="flex flex-row items-center gap-3 text-[#5D6E96] px-1">
-                        <button 
+                        <button
                             onClick={() => scrollReleases("left")}
                             className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10094;
                         </button>
-                        <button 
+                        <button
                             onClick={() => scrollReleases("right")}
                             className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10095;
@@ -223,21 +227,21 @@ export default function MyLibrary() {
                     </div>
                 </div>
 
-                <div 
-                ref={releasesScrollRef}
-                onMouseDown={handleReleasesMouseDown}
-                onMouseLeave={handleReleasesMouseLeave}
-                onMouseUp={handleReleasesMouseUp}
-                onMouseMove={handleReleasesMouseMove}
-                className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
-                    
+                <div
+                    ref={releasesScrollRef}
+                    onMouseDown={handleReleasesMouseDown}
+                    onMouseLeave={handleReleasesMouseLeave}
+                    onMouseUp={handleReleasesMouseUp}
+                    onMouseMove={handleReleasesMouseMove}
+                    className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
+
                     {NEW_RELEASES.map((nr) => (
-                        <div key={nr.id} 
-                        className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
-                            
-                            <img src={nr.img} alt={nr.music} 
-                            className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none"/>
-                            
+                        <div key={nr.id}
+                            className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
+
+                            <img src={nr.img} alt={nr.music}
+                                className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none" />
+
                             <div className="flex flex-col gap-0.5 min-w-0">
                                 <p className="text-white font-medium text-xs md:text-sm truncate w-full">{nr.music}</p>
                                 <p className="text-white/60 font-normal text-[10px] md:text-xs truncate w-full">{nr.artist}</p>
@@ -253,41 +257,41 @@ export default function MyLibrary() {
                     <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
                         Твої улюблені <span className="text-[#40A2FF]">виконавці</span>
                     </h3>
-                    
+
                     <div className="flex flex-row items-center gap-3 text-[#5D6E96] px-1">
                         <button onClick={() => scrollArtists("left")}
-                        className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
+                            className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10094;
                         </button>
-                        
+
                         <button onClick={() => scrollArtists("right")}
-                        className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
+                            className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10095;
                         </button>
                     </div>
                 </div>
-                
-                <div 
-                ref={artistsScrollRef}
-                onMouseDown={handleArtistsMouseDown}
-                onMouseLeave={handleArtistsMouseLeave}
-                onMouseUp={handleArtistsMouseUp}
-                onMouseMove={handleArtistsMouseMove}
-                className="flex flex-row justify-start items-start gap-6 md:gap-8 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
-                    
+
+                <div
+                    ref={artistsScrollRef}
+                    onMouseDown={handleArtistsMouseDown}
+                    onMouseLeave={handleArtistsMouseLeave}
+                    onMouseUp={handleArtistsMouseUp}
+                    onMouseMove={handleArtistsMouseMove}
+                    className="flex flex-row justify-start items-start gap-6 md:gap-8 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
+
                     {FAVOURITE_ARTISTS.map((artist) => (
-                        <div key={artist.id} 
-                        className="flex flex-col items-center text-center gap-2 w-[140px] md:w-[160px] shrink-0 cursor-pointer group">
-                            
+                        <div key={artist.id}
+                            className="flex flex-col items-center text-center gap-2 w-[140px] md:w-[160px] shrink-0 cursor-pointer group">
+
                             <div className="w-full aspect-square rounded-full overflow-hidden border border-[#AAE4FF]/10 bg-[#112240]/30">
-                            <img src={artist.img} alt={artist.artist} 
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
+                                <img src={artist.img} alt={artist.artist}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none" />
                             </div>
-                            
+
                             <div className="flex flex-col gap-0.5 min-w-0 w-full px-1">
                                 <p className="text-white font-medium text-xs md:text-sm truncate w-full group-hover:text-[#BEF4FF] transition-colors">
                                     {artist.artist}</p>
-                                    
+
                                 <p className="text-[#7BA6DF]/60 font-normal text-[10px] md:text-xs truncate w-full">
                                     {artist.listeners}</p>
                             </div>
@@ -301,59 +305,59 @@ export default function MyLibrary() {
                     <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
                         Твої найкращі <span className="text-[#40A2FF]">мікси</span>
                     </h3>
-                    
+
                     <div className="flex flex-row items-center gap-3 text-[#5D6E96] px-1">
                         <button onClick={() => scrollMixes("left")}
-                        className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
+                            className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10094;</button>
-                        
+
                         <button onClick={() => scrollMixes("right")}
-                        className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
+                            className="cursor-pointer hover:text-[#7BA6DF] text-xl transition-colors duration-200 p-1 select-none">
                             &#10095;</button>
                     </div>
                 </div>
-            <div 
-            ref={mixesScrollRef}
-            onMouseDown={handleMixesMouseDown}
-            onMouseLeave={handleMixesMouseLeave}
-            onMouseUp={handleMixesMouseUp}
-            onMouseMove={handleMixesMouseMove}
-            className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
-                
-                {BEST_MIXES.map((mix) => (
-                    <div key={mix.id} 
-                    className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer group">
-                        <div className="w-full aspect-square overflow-hidden rounded-lg">
-                            <img src={mix.img} alt={mix.playlist} 
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
-                        </div>
-                        
-                        <div className="flex flex-col gap-0.5 min-w-0">
-                            <p className="text-white font-medium text-xs md:text-sm truncate w-full group-hover:text-[#BEF4FF] transition-colors">
-                                {mix.playlist}</p>
+                <div
+                    ref={mixesScrollRef}
+                    onMouseDown={handleMixesMouseDown}
+                    onMouseLeave={handleMixesMouseLeave}
+                    onMouseUp={handleMixesMouseUp}
+                    onMouseMove={handleMixesMouseMove}
+                    className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
+
+                    {BEST_MIXES.map((mix) => (
+                        <div key={mix.id}
+                            className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer group">
+                            <div className="w-full aspect-square overflow-hidden rounded-lg">
+                                <img src={mix.img} alt={mix.playlist}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none" />
+                            </div>
+
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                                <p className="text-white font-medium text-xs md:text-sm truncate w-full group-hover:text-[#BEF4FF] transition-colors">
+                                    {mix.playlist}</p>
                                 <p className="text-white/60 font-normal text-[10px] md:text-xs truncate w-full">
-                                {mix.artists}</p>
+                                    {mix.artists}</p>
+                            </div>
                         </div>
-                    </div>
-                ))}
+                    ))}
+                </div>
             </div>
-            </div>
-            
+
             <div className="flex flex-col gap-5 w-full min-w-0 md:mb-8">
                 <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
                     <span className="text-[#40A2FF]">Подкасти,</span> які тобі сподобалися
                 </h3>
-                
+
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 w-full">
                     {NEW_PODCASTS.map((pod) => (
                         <div key={pod.id}
-                        className="flex flex-row md:flex-col justify-between bg-[#112240]/40 hover:bg-[#162c52]/60 hover:border-[#40A2FF]/20 transition-all duration-300 rounded-2xl p-4 md:p-5 w-full cursor-pointer group gap-4 md:gap-0">
+                            className="flex flex-row md:flex-col justify-between bg-[#112240]/40 hover:bg-[#162c52]/60 hover:border-[#40A2FF]/20 transition-all duration-300 rounded-2xl p-4 md:p-5 w-full cursor-pointer group gap-4 md:gap-0">
                             <div className="w-[90px] h-[90px] sm:w-[110px] sm:h-[110px] md:w-[180px] md:h-[180px] relative shrink-0 rounded-xl overflow-hidden bg-[#0c1a30] md:order-2 md:mt-4 md:mx-auto">
-                                <Image src={pod.img} alt={pod.name} 
-                                fill sizes="(max-width: 768px) 110px, 180px" 
-                                className="object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
+                                <Image src={pod.img} alt={pod.name}
+                                    fill sizes="(max-width: 768px) 110px, 180px"
+                                    className="object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none" />
                             </div>
-                            
+
                             <div className="flex flex-col flex-1 justify-between min-w-0 md:contents">
                                 <div className="flex flex-col gap-0.5 min-w-0 md:order-1">
                                     <h4 className="text-white font-semibold text-sm md:text-base truncate w-full group-hover:text-[#BEF4FF] transition-colors">
@@ -361,53 +365,53 @@ export default function MyLibrary() {
                                     <p className="text-white/40 text-[10px] md:text-xs font-normal truncate">
                                         {pod.genres} <span className="mx-0.5">•</span> Consectetur adipiscing elit quisque faucib...</p>
                                 </div>
-                                
+
                                 <div className="flex flex-col gap-2 md:gap-4 mt-2 md:mt-4 min-w-0 md:order-3">
                                     <p className="text-white/60 font-normal text-[11px] md:text-xs leading-relaxed line-clamp-2 md:line-clamp-4">
                                         {pod.desc}</p>
-                                        
-                                        <div className="text-white/40 text-[10px] md:text-xs font-light flex items-center gap-1.5">
+
+                                    <div className="text-white/40 text-[10px] md:text-xs font-light flex items-center gap-1.5">
                                         <span>{pod.date}</span><span>•</span><span>{pod.time}</span>
-                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-            
+
             <div className="flex flex-col gap-5 w-full min-w-0 md:mb-8 pb-12">
                 <h3 className="text-[#BEF4FF] text-lg md:text-2xl font-semibold">
                     <span className="text-[#40A2FF]">Аудіокниги,</span> які тобі сподобалися
                 </h3>
-                
+
                 <div className="flex flex-col gap-6 w-full">
                     {BOOKS.map((item) => (
-                        <div key={item.id} 
-                        className="flex flex-row gap-4 md:gap-6 items-start w-full group cursor-pointer">
-                            
+                        <div key={item.id}
+                            className="flex flex-row gap-4 md:gap-6 items-start w-full group cursor-pointer">
+
                             <div className="w-[110px] h-[110px] md:w-[140px] md:h-[140px] shrink-0 rounded-lg overflow-hidden relative bg-[#112240]/40">
-                            <img src={item.img} alt={item.book} 
-                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none"/>
+                                <img src={item.img} alt={item.book}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105 pointer-events-none" />
                             </div>
                             <div className="flex flex-col flex-1 min-w-0 h-full justify-between py-1">
                                 <div>
                                     <h4 className="text-white text-sm md:text-base font-medium group-hover:text-[#40A2FF] transition-colors duration-200">
                                         {item.book} <span className="text-[#7BA6DF]/60 font-light mx-1">|</span> <span className="text-white/80 font-normal">{item.author}</span></h4>
-                                        <p className="text-[#7BA6DF] font-medium text-[11px] md:text-xs mt-0.5 mb-2">
-                                            {item.genres}</p>
-                                        <p className="text-white/60 font-light text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-4 max-w-2xl">
-                                            {item.desc}</p>
+                                    <p className="text-[#7BA6DF] font-medium text-[11px] md:text-xs mt-0.5 mb-2">
+                                        {item.genres}</p>
+                                    <p className="text-white/60 font-light text-[11px] md:text-xs leading-relaxed line-clamp-3 md:line-clamp-4 max-w-2xl">
+                                        {item.desc}</p>
                                 </div>
                                 <div className="flex flex-col gap-0.5 mt-3 text-white/40 text-[10px] md:text-xs font-light">
-                                <p>{item.date}</p>
-                                <p>{item.time}</p>
+                                    <p>{item.date}</p>
+                                    <p>{item.time}</p>
                                 </div>
                             </div>
                         </div>
                     ))}
                 </div>
-            </div>   
-    </div>
+            </div>
+        </div>
     )
 }

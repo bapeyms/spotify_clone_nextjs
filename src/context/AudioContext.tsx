@@ -1,14 +1,26 @@
 "use client";
 
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { SONGS, type Song } from "@/data/sonyapage/songs";
+import { SONGS } from "@/data/sonyapage/songs";
+
+type PlayerTrack = {
+  id: string;
+  title: string;
+  artist: string;
+  cover: string;
+  duration: string;
+};
 
 interface AudioContextType {
-  currentTrack: Song | null;
+  currentTrack: PlayerTrack | null;
   isPlaying: boolean;
   currentTime: number;
   duration: number;
-  playTrack: (track: Song, playlist?: Song[], startIndex?: number) => void;
+  playTrack: (
+    track: PlayerTrack,
+    playlist?: PlayerTrack[],
+    startIndex?: number
+  ) => void;
   togglePlay: () => void;
 }
 
@@ -20,8 +32,8 @@ const parseDuration = (value: string) => {
 };
 
 export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
-  const [currentTrack, setCurrentTrack] = useState<Song | null>(null);
-  const [currentPlaylist, setCurrentPlaylist] = useState<Song[]>(SONGS);
+  const [currentTrack, setCurrentTrack] = useState<PlayerTrack | null>(null);
+  const [currentPlaylist, setCurrentPlaylist] = useState<PlayerTrack[]>(SONGS as PlayerTrack[]);
   const [currentIndex, setCurrentIndex] = useState<number>(-1);
 
   const [isPlaying, setIsPlaying] = useState(false);
@@ -29,8 +41,8 @@ export const AudioProvider = ({ children }: { children: React.ReactNode }) => {
   const [duration, setDuration] = useState(0);
 
   const playTrack = (
-    track: Song,
-    playlist: Song[] = SONGS,
+    track: PlayerTrack,
+    playlist: PlayerTrack[] = SONGS as PlayerTrack[],
     startIndex?: number
   ) => {
     const index =

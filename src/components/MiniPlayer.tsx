@@ -59,7 +59,9 @@ export default function MiniPlayer() {
                 style={{ width: `${progress}%` }}
               />
             </div>
-            <span className="text-xs text-white/50">{currentTrack.duration}</span>
+            <span className="text-xs text-white/50">
+              {currentTrack ? currentTrack.duration : "00:00"}
+            </span>
           </div>
         </div>
 
