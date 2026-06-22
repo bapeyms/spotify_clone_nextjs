@@ -141,36 +141,60 @@ export default function MiniPlayer() {
             className="aspect-square rounded object-cover"
           />
 
-          <div className="min-w-0 flex-1">
-            <div className="truncate text-sm font-semibold">
-              {currentTrack.title}
+          <div className="flex flex-col items-center">
+            <div className="flex items-center gap-6">
+              <Image src="/playlist/repeat.png" alt="Повтор" width={16} height={16}
+                className="cursor-pointer" />
+              <Image src="/playlist/prev.png" alt="Назад" width={14} height={14}
+                className="cursor-pointer" />
+
+              <button type="button" onClick={togglePlay} className="flex items-center justify-center cursor-pointer">
+                <Image
+                  src={isPlaying ? "/playlist/pause.png" : "/playlist/play.png"}
+                  alt={isPlaying ? "Pause" : "Play"}
+                  width={30}
+                  height={30}
+                />
+              </button>
+
+              <Image src="/playlist/next.png" alt="Вперед" width={14} height={14}
+                className="cursor-pointer" />
+              <Image src="/playlist/shuffle.png" alt="Перемішати" width={14} height={14}
+                className="cursor-pointer" />
             </div>
-            <div className="truncate text-[11px] text-white/50">
-              {currentTrack.artist}
+
+            <div className="mt-1 flex w-full max-w-[500px] items-center gap-2">
+              <span className="text-xs text-white/50">{formatTime(currentTime)}</span>
+              <div className="h-[3px] flex-1 rounded-full bg-white/20">
+                <div
+                  className="h-full rounded-full bg-sky-300 transition-all duration-200"
+                  style={{ width: `${progress}%` }}
+                />
+              </div>
             </div>
+
+            <button type="button" className="text-[#93E8FF] text-2xl">
+              <Image
+                src="/playlist/add.png"
+                alt="Додати"
+                width={14}
+                height={14} />
+            </button>
+
+            <button
+              type="button"
+              onClick={togglePlay}
+              className="flex items-center justify-center"
+            >
+              <Image
+                src={isPlaying ? "/playlist/stop2.png" : "/playlist/play2.png"}
+                alt={isPlaying ? "Pause" : "Play"}
+                width={15}
+                height={15}
+                className="h-[15px] w-[15px] object-contain"
+              />
+            </button>
           </div>
-
-          <button type="button" className="text-[#93E8FF] text-2xl">
-            <Image
-              src="/playlist/add.png"
-              alt="Додати"
-              width={14}
-              height={14} />
-          </button>
-
-          <button
-            type="button"
-            onClick={togglePlay}
-            className="flex items-center justify-center"
-          >
-            <Image
-              src={isPlaying ? "/playlist/stop2.png" : "/playlist/play2.png"}
-              alt={isPlaying ? "Pause" : "Play"}
-              width={15}
-              height={15}
-              className="h-[15px] w-[15px] object-contain"
-            />
-          </button>
         </div>
       </div>
     </>

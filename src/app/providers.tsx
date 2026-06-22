@@ -1,11 +1,12 @@
 "use client";
 
-import { AudioProvider } from "@/context/AudioContext";
+import React from "react";
+import { AudioProvider } from "@/context/AudioContext"; 
 
-export default function Providers({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return <AudioProvider>{children}</AudioProvider>;
+export default function Providers({ children }: { children: React.ReactNode }) {
+  return (
+    <AudioProvider>
+      {children}
+    </AudioProvider>
+  );
 }

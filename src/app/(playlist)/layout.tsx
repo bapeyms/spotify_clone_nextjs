@@ -2,7 +2,6 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import LeftNavbar from "@/components/LeftNavbar";
 import MiniPlayer from "@/components/MiniPlayer";
-import { AudioProvider } from "@/context/AudioContext";
 
 export default function DashboardLayout({
   children,
@@ -10,7 +9,6 @@ export default function DashboardLayout({
   children: React.ReactNode;
 }) {
   return (
-    <AudioProvider>
       <div className="flex flex-col min-h-screen bg-[#061420] font-sans text-white">
         <Navbar />
         <div className="flex flex-row w-full overflow-hidden">
@@ -22,6 +20,5 @@ export default function DashboardLayout({
         <MiniPlayer />
         <Footer />
       </div>
-    </AudioProvider>
   );
 }

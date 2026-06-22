@@ -5,6 +5,6 @@ export const metadata: Metadata = {
   title: "Головна | LumiTune",
 };
 
-export default function Page() {
+export default function PageHome() {
   return <HomePage/>;
 }
