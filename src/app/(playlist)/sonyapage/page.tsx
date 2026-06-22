@@ -2,12 +2,10 @@
 
 import Image from "next/image";
 import { SONGS } from "@/data/sonyapage/songs";
-
 import { useAudio } from "@/context/AudioContext";
 
 export default function Songs() {
-
-    const { playTrack } = useAudio();
+    const { playTrack, currentTrack, isPlaying, togglePlay } = useAudio();
 
     return (
         <main className="w-full pb-20">
@@ -34,12 +32,22 @@ export default function Songs() {
                 <div className="flex items-center justify-between px-10 py-4">
                     {/* левая часть */}
                     <div className="flex items-center gap-4">
-                        <button>
+                        <button
+                            type="button"
+                            onClick={() => {
+                                if (!currentTrack) {
+                                    playTrack(SONGS[0], SONGS, 0);
+                                    return;
+                                }
+                                togglePlay();
+                            }}
+                            className="flex items-center justify-center"
+                        >
                             <Image
-                                src="/playlist/play.png"
-                                alt="play"
-                                width={40}
-                                height={40}
+                                src={isPlaying ? "/playlist/pause.png" : "/playlist/play.png"}
+                                alt={isPlaying ? "Pause" : "Play"}
+                                width={30}
+                                height={30}
                             />
                         </button>
 
@@ -95,12 +103,7 @@ export default function Songs() {
                 {SONGS.map((song, index) => (
                     <div
                         key={song.id}
-                        onClick={() => playTrack({
-                            title: song.title,
-                            artist: song.artist,
-                            cover: song.cover,
-                            duration: song.duration
-                        })}
+                        onClick={() => playTrack(song, SONGS, index)}
 
                         className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white hover:bg-blue-950 "
                     >
