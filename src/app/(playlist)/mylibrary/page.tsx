@@ -3,6 +3,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import { useRef } from "react"
+import { useAudio } from "@/context/AudioContext"
 
 import { MUSIC_TODAY } from "@/data/homepage/your_music_today"
 import { NEW_RELEASES } from "@/data/homepage/new_releases"
@@ -134,6 +135,8 @@ export default function MyLibrary() {
         });
     };
 
+    const { playTrack } = useAudio();
+
     return (
         <div className="relative flex flex-col text-white gap-8 w-full max-w-full min-h-screen px-4 md:px-12 mt-10">
             <div className="absolute inset-0 z-0 pointer-events-none select-none">
@@ -176,8 +179,12 @@ export default function MyLibrary() {
                     className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
 
                     {MUSIC_TODAY.map((mt) => (
-                        <div 
-                            key={mt.id} 
+                        <div key={mt.id}
+                        onClick={() => playTrack({
+                            title: mt.music,
+                            artist: mt.artist,
+                            cover: mt.img
+                        })}
                             className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
                             <img src={mt.img} alt={mt.music} 
                                 className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none"/>
@@ -215,32 +222,25 @@ export default function MyLibrary() {
                 </div>
 
                 <div 
-                    ref={releasesScrollRef}
-                    onMouseDown={handleReleasesMouseDown}
-                    onMouseLeave={handleReleasesMouseLeave}
-                    onMouseUp={handleReleasesMouseUp}
-                    onMouseMove={handleReleasesMouseMove}
-                    className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
-
+                ref={releasesScrollRef}
+                onMouseDown={handleReleasesMouseDown}
+                onMouseLeave={handleReleasesMouseLeave}
+                onMouseUp={handleReleasesMouseUp}
+                onMouseMove={handleReleasesMouseMove}
+                className="flex flex-row justify-start items-start gap-4 w-full overflow-x-auto scrollbar-none touch-pan-x pb-3 cursor-grab active:cursor-grabbing select-none">
+                    
                     {NEW_RELEASES.map((nr) => (
-                        <div 
-                            key={nr.id} 
-                            className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
-                            <img 
-                                src={nr.img} 
-                                alt={nr.music} 
-                                className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none"/>
-                                <div className="flex flex-col gap-0.5 min-w-0">
-                                    <p className="text-white font-medium text-xs md:text-sm truncate w-full">
-                                    {nr.music}
-                                    </p>
-                                    <p className="text-white/60 font-normal text-[10px] md:text-xs truncate w-full">
-                                    {nr.artist}
-                                    </p>
-                                    <p className="text-white/50 font-normal text-[7px] md:text-xs truncate w-full">
-                                    {nr.tracks}
-                                    </p>
-                                </div>
+                        <div key={nr.id} 
+                        className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
+                            
+                            <img src={nr.img} alt={nr.music} 
+                            className="w-full h-auto aspect-square object-cover rounded-lg pointer-events-none"/>
+                            
+                            <div className="flex flex-col gap-0.5 min-w-0">
+                                <p className="text-white font-medium text-xs md:text-sm truncate w-full">{nr.music}</p>
+                                <p className="text-white/60 font-normal text-[10px] md:text-xs truncate w-full">{nr.artist}</p>
+                                <p className="text-white/50 font-normal text-[7px] md:text-xs truncate w-full">{nr.tracks}</p>
+                            </div>
                         </div>
                     ))}
                 </div>

@@ -4,6 +4,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { usePathname } from "next/navigation"
 import { useRef } from "react"
+import { useAudio } from "@/context/AudioContext"
+
+import { AudioProvider } from "@/context/AudioContext";
 
 import { CONCERT } from "@/data/homepage/concert_slider"
 import { MOOD } from "@/data/homepage/mood"
@@ -20,7 +23,9 @@ import "swiper/css/navigation"
 import "swiper/css/pagination"
 
 export default function HomePage() {
+
     const pathname = usePathname();
+    const { playTrack } = useAudio();
     
     // mood
     const scrollRef = useRef<HTMLDivElement>(null);
@@ -252,6 +257,11 @@ export default function HomePage() {
                     {MUSIC_TODAY.map((mt) => (
                         <div 
                             key={mt.id} 
+                            onClick={() => playTrack({
+                            title: mt.music,
+                            artist: mt.artist,
+                            cover: mt.img
+                        })}
                             className="flex flex-col gap-2 bg-[#112240]/60 hover:bg-[#162c52]/80 transition-colors duration-200 rounded-xl p-2.5 w-[160px] md:w-[180px] shrink-0 cursor-pointer">
                             <img 
                                 src={mt.img} 
