@@ -91,7 +91,7 @@ export default function Songs() {
                 <div>Дата додавання</div>
                 <div>Час</div>
             </div>
-            <div className="space-y-2 px-10">
+            <div className="space-y-2 px-10 ">
                 {SONGS.map((song, index) => (
                     <div
                         key={song.id}
@@ -102,7 +102,7 @@ export default function Songs() {
                             duration: song.duration
                         })}
 
-                        className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white"
+                        className="grid grid-cols-[60px_1fr_1fr_1fr_80px] items-center rounded-xl bg-[#0c1b2a] px-2 py-2 text-white hover:bg-blue-950 "
                     >
                         <div className="text-center text-sky-300">
                             {index + 1}
